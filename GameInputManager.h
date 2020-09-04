@@ -9,14 +9,15 @@
 #include <wrl.h>
 #include <queue>
 #include <string>
+#include "..\Common\StepTimer.h"
 
 using namespace Windows::UI::Core;
 
 enum class InputEventType
 {
 	None,
-	Down,
-	Up
+	KeyDown,
+	KeyUp
 };
 
 struct GameInputEvent
@@ -26,6 +27,17 @@ struct GameInputEvent
 	InputEventType etype;
 };
 
+enum class FrameInputType
+{
+	None
+	, Direction
+};
+
+struct FrameInput
+{
+	FrameInputType iType;
+	void* iValue;
+};
 
 /// <summary>
 /// Manager for game input related functionality.
@@ -34,6 +46,7 @@ class GameInputManager
 {
 public:
 	static GameInputManager* InitPlatformManager(CoreWindow^ window);
+	void Update(DX::StepTimer const& timer);
 
 private:
 	/// <summary>

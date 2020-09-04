@@ -22,6 +22,25 @@ GameInputManager* GameInputManager::InitPlatformManager(CoreWindow^ window)
     return inputManager;
 }
 
+void GameInputManager::Update(DX::StepTimer const& timer)
+{
+    while (!m_inputQueue.empty()) {
+        GameInputEvent event = m_inputQueue.front();
+        if (event.etype == InputEventType::KeyDown)
+        {
+            if (event.value == "<UP>")
+            {
+                auto msg = "DIR::UP";
+            }
+            else if (event.value == "<SPACE>")
+            {
+                auto msg = "OTHER::SPACE";
+            }
+        }
+        m_inputQueue.pop();
+    }
+}
+
 void GameInputManager::PlatformInputForwarder::OnKeyDown(CoreWindow^ sender, KeyEventArgs^ args)
 {
     std::string keyValue = "";
@@ -29,6 +48,9 @@ void GameInputManager::PlatformInputForwarder::OnKeyDown(CoreWindow^ sender, Key
     switch (inputKey) {
     case VirtualKey::Up:
         keyValue = "<UP>";
+        break;
+    case VirtualKey::Space:
+        keyValue = "<SPACE>";
         break;
     }
 
@@ -40,7 +62,7 @@ void GameInputManager::PlatformInputForwarder::OnKeyDown(CoreWindow^ sender, Key
     QueryPerformanceCounter(&currentTimestamp);
     GameInputEvent keyEvent;
     keyEvent.timestamp = currentTimestamp.QuadPart;
-    keyEvent.etype = InputEventType::Down;
+    keyEvent.etype = InputEventType::KeyDown;
     keyEvent.value = keyValue;
     m_inputManager->m_inputQueue.push(keyEvent);
 }
