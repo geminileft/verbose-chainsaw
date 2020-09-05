@@ -12,6 +12,7 @@
 #include "..\Common\StepTimer.h"
 
 using namespace Windows::UI::Core;
+using namespace DX;
 
 enum class InputEventType
 {
