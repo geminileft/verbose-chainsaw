@@ -11,9 +11,12 @@
 #include <string>
 #include "..\Common\StepTimer.h"
 #include <GameMessageSystem.h>
+#include <collection.h>
 
 using namespace Windows::UI::Core;
 using namespace DX;
+using namespace Platform::Collections;
+using namespace Windows::Gaming::Input;
 
 enum class InputEventType
 {
@@ -50,6 +53,7 @@ public:
 	static GameInputManager* InitPlatformManager(CoreWindow^ window);
 	void Update(DX::StepTimer const& timer);
 	void SetMessageSystem(GameMessageSystem* messageSystem);
+	Gamepad^ GetFirstGamepad();
 
 private:
 	/// <summary>
@@ -82,6 +86,7 @@ private:
 	std::queue<GameInputEvent> m_inputQueue;
 	LARGE_INTEGER m_timerFrequency;
 	GameMessageSystem* m_messageSystem;
+	Vector<Gamepad^>^ m_myGamepads;
 
 	GameInputManager();
 

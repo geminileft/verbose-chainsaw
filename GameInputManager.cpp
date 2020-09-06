@@ -21,6 +21,28 @@ GameInputManager* GameInputManager::InitPlatformManager(CoreWindow^ window)
     GameInputManager::PlatformInputForwarder^ inputForwarder = ref new GameInputManager::PlatformInputForwarder(inputManager);
     inputForwarder->Setup(window);
     inputManager->m_inputForwarder = inputForwarder;
+    inputManager->m_myGamepads = ref new Vector<Gamepad^>();
+
+    for (auto gamepad : Gamepad::Gamepads)
+    {
+        inputManager->m_myGamepads->Append(gamepad);
+    }
+
+    Gamepad::GamepadAdded += ref new EventHandler<Gamepad^>([=](Platform::Object^, Gamepad^ args)
+        {
+            inputManager->m_myGamepads->Append(args);
+        });
+
+    Gamepad::GamepadRemoved += ref new EventHandler<Gamepad^>([=](Platform::Object^, Gamepad^ args)
+        {
+            unsigned int indexRemoved;
+
+            if (inputManager->m_myGamepads->IndexOf(args, &indexRemoved))
+            {
+                inputManager->m_myGamepads->RemoveAt(indexRemoved);
+            }
+        });
+
     return inputManager;
 }
 
@@ -59,11 +81,47 @@ void GameInputManager::Update(DX::StepTimer const& timer)
         }
         m_inputQueue.pop();
     }
+    Gamepad^ player = GetFirstGamepad();
+
+    if (player != nullptr)
+    {
+        auto currentReading = player->GetCurrentReading();
+        if ((currentReading.Buttons & GamepadButtons::B) == GamepadButtons::B)
+        {
+            GameMessageInfo info;
+            info.mType = GameMessageType::ActionStop;
+            m_messageSystem->Broadcast(info);
+        }
+        else if ((currentReading.Buttons & GamepadButtons::DPadRight) == GamepadButtons::DPadRight)
+        {
+            GameMessageInfo info;
+            info.mType = GameMessageType::DirectionRight;
+            m_messageSystem->Broadcast(info);
+        }
+        else if ((currentReading.Buttons & GamepadButtons::DPadLeft) == GamepadButtons::DPadLeft)
+        {
+            GameMessageInfo info;
+            info.mType = GameMessageType::DirectionLeft;
+            m_messageSystem->Broadcast(info);
+        }
+    }
 }
 
 void GameInputManager::SetMessageSystem(GameMessageSystem* messageSystem)
 {
     m_messageSystem = messageSystem;
+}
+
+Gamepad^ GameInputManager::GetFirstGamepad()
+{
+    if (m_myGamepads->Size > 0)
+    {
+        return m_myGamepads->GetAt(0);
+    }
+    else
+    {
+        return nullptr;
+    }
 }
 
 void GameInputManager::PlatformInputForwarder::OnKeyDown(CoreWindow^ sender, KeyEventArgs^ args)
