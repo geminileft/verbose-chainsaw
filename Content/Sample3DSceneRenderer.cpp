@@ -87,8 +87,8 @@ void Sample3DSceneRenderer::Update(DX::StepTimer const& timer)
 
 		// Convert degrees to radians, then convert seconds to rotation angle
 		float radiansPerSecond = XMConvertToRadians(m_degreesPerSecond);
-		double totalRotation = timer.GetTotalSeconds() * radiansPerSecond;
-		float radians = static_cast<float>(fmod(totalRotation, XM_2PI));
+		m_totalRotation += ( radiansPerSecond / 60.0);
+		float radians = static_cast<float>(fmod(m_totalRotation, XM_2PI));
 
 		Rotate(radians);
 	}

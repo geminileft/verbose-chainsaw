@@ -42,6 +42,7 @@ namespace App1
 		// System resources for cube geometry.
 		ModelViewProjectionConstantBuffer	m_constantBufferData;
 		uint32	m_indexCount;
+		double m_totalRotation = 0;
 
 		// Variables used with the rendering loop.
 		bool	m_loadingComplete;
