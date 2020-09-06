@@ -2,8 +2,10 @@
 
 #include "pch.h"
 
-#include "GameInputManager.h"
 #include <profileapi.h>
+
+#include "GameInputManager.h"
+#include "GameMessageSystem.h"
 
 using namespace Windows::Foundation;
 using namespace Windows::System;
@@ -31,14 +33,37 @@ void GameInputManager::Update(DX::StepTimer const& timer)
             if (event.value == "<UP>")
             {
                 auto msg = "DIR::UP";
+                GameMessageInfo info;
+                info.mType = GameMessageType::DirectionUp;
+                m_messageSystem->Broadcast(info);
+            }
+            else if (event.value == "<RIGHT>")
+            {
+                GameMessageInfo info;
+                info.mType = GameMessageType::DirectionRight;
+                m_messageSystem->Broadcast(info);
+            }
+            else if (event.value == "<LEFT>")
+            {
+                GameMessageInfo info;
+                info.mType = GameMessageType::DirectionLeft;
+                m_messageSystem->Broadcast(info);
             }
             else if (event.value == "<SPACE>")
             {
                 auto msg = "OTHER::SPACE";
+                GameMessageInfo info;
+                info.mType = GameMessageType::ActionStop;
+                m_messageSystem->Broadcast(info);
             }
         }
         m_inputQueue.pop();
     }
+}
+
+void GameInputManager::SetMessageSystem(GameMessageSystem* messageSystem)
+{
+    m_messageSystem = messageSystem;
 }
 
 void GameInputManager::PlatformInputForwarder::OnKeyDown(CoreWindow^ sender, KeyEventArgs^ args)
@@ -48,6 +73,12 @@ void GameInputManager::PlatformInputForwarder::OnKeyDown(CoreWindow^ sender, Key
     switch (inputKey) {
     case VirtualKey::Up:
         keyValue = "<UP>";
+        break;
+    case VirtualKey::Right:
+        keyValue = "<RIGHT>";
+        break;
+    case VirtualKey::Left:
+        keyValue = "<LEFT>";
         break;
     case VirtualKey::Space:
         keyValue = "<SPACE>";

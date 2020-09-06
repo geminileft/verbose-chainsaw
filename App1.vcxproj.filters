@@ -65,6 +65,9 @@
     <Filter Include="Input">
       <UniqueIdentifier>{29740f7b-7b53-400c-badc-523a87b82080}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Messaging">
+      <UniqueIdentifier>{c75a3d86-f66e-4453-89aa-847f10d553aa}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="App.cpp" />
@@ -73,6 +76,9 @@
     <ClCompile Include="GameInputManager.cpp">
       <Filter>Input</Filter>
     </ClCompile>
+    <ClCompile Include="GameMessageSystem.cpp">
+      <Filter>Messaging</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="App.h" />
@@ -80,6 +86,9 @@
     <ClInclude Include="pch.h" />
     <ClInclude Include="GameInputManager.h">
       <Filter>Input</Filter>
+    </ClInclude>
+    <ClInclude Include="GameMessageSystem.h">
+      <Filter>Messaging</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

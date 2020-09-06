@@ -6,6 +6,7 @@
 #include "Content\SampleFpsTextRenderer.h"
 
 #include "GameInputManager.h"
+#include "GameMessageSystem.h"
 
 // Renders Direct2D and 3D content on the screen.
 namespace App1
@@ -32,6 +33,7 @@ namespace App1
 		std::unique_ptr<GameInputManager> m_inputManager;
 		std::unique_ptr<Sample3DSceneRenderer> m_sceneRenderer;
 		std::unique_ptr<SampleFpsTextRenderer> m_fpsTextRenderer;
+		std::unique_ptr<GameMessageSystem> m_messageSystem;
 
 		// Rendering loop timer.
 		DX::StepTimer m_timer;

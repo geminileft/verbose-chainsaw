@@ -70,6 +70,21 @@ void Sample3DSceneRenderer::Update(DX::StepTimer const& timer)
 {
 	if (!m_tracking)
 	{
+		auto messages = m_messageSystem->GetSubscriptionMessages(m_subscriptionId);
+		while (!messages.empty()) {
+			auto nextMessage = messages.front();
+			if (nextMessage.mType == GameMessageType::ActionStop) {
+				m_degreesPerSecond = 0;
+			}
+			else if (nextMessage.mType == GameMessageType::DirectionRight) {
+				m_degreesPerSecond = 45;
+			}
+			else if (nextMessage.mType == GameMessageType::DirectionLeft) {
+				m_degreesPerSecond = -45;
+			}
+			messages.pop();
+		}
+
 		// Convert degrees to radians, then convert seconds to rotation angle
 		float radiansPerSecond = XMConvertToRadians(m_degreesPerSecond);
 		double totalRotation = timer.GetTotalSeconds() * radiansPerSecond;
@@ -104,6 +119,16 @@ void Sample3DSceneRenderer::TrackingUpdate(float positionX)
 void Sample3DSceneRenderer::StopTracking()
 {
 	m_tracking = false;
+}
+
+void Sample3DSceneRenderer::SetMessageSystem(GameMessageSystem* messageSystem)
+{
+	m_messageSystem = messageSystem;
+	std::set<GameMessageType> messageFilters;
+	messageFilters.insert(GameMessageType::ActionStop);
+	messageFilters.insert(GameMessageType::DirectionLeft);
+	messageFilters.insert(GameMessageType::DirectionRight);
+	m_subscriptionId = m_messageSystem->CreateSubscription(messageFilters);
 }
 
 // Renders one frame using the vertex and pixel shaders.

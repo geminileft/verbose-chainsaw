@@ -3,6 +3,7 @@
 #include "..\Common\DeviceResources.h"
 #include "ShaderStructures.h"
 #include "..\Common\StepTimer.h"
+#include "GameMessageSystem.h"
 
 namespace App1
 {
@@ -20,6 +21,7 @@ namespace App1
 		void TrackingUpdate(float positionX);
 		void StopTracking();
 		bool IsTracking() { return m_tracking; }
+		void SetMessageSystem(GameMessageSystem* messageSystem);
 
 
 	private:
@@ -45,6 +47,9 @@ namespace App1
 		bool	m_loadingComplete;
 		float	m_degreesPerSecond;
 		bool	m_tracking;
+		GameMessageSystem* m_messageSystem;
+		long m_subscriptionId;
+
 	};
 }
 
