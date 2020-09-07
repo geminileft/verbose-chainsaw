@@ -14,12 +14,16 @@ App1Main::App1Main(const std::shared_ptr<DX::DeviceResources>& deviceResources) 
 	// Register to be notified if the Device is lost or recreated
 	m_deviceResources->RegisterDeviceNotify(this);
 
-	// TODO: Replace this with your app's content initialization.
+	m_messageSystem = std::unique_ptr<GameMessageSystem>(new GameMessageSystem());
+
 	m_inputManager = std::unique_ptr<GameInputManager>(GameInputManager::InitPlatformManager(m_deviceResources->GetWindow()));
+	m_inputManager->SetMessageSystem(m_messageSystem.get());
 
 	m_sceneRenderer = std::unique_ptr<Sample3DSceneRenderer>(new Sample3DSceneRenderer(m_deviceResources));
+	m_sceneRenderer->SetMessageSystem(m_messageSystem.get());
 
 	m_fpsTextRenderer = std::unique_ptr<SampleFpsTextRenderer>(new SampleFpsTextRenderer(m_deviceResources));
+
 
 	// TODO: Change the timer settings if you want something other than the default variable timestep mode.
 	// e.g. for 60 FPS fixed timestep update logic, call:
@@ -49,6 +53,7 @@ void App1Main::Update()
 	m_timer.Tick([&]()
 	{
 		// TODO: Replace this with your app's content update functions.
+		m_inputManager->Update(m_timer);
 		m_sceneRenderer->Update(m_timer);
 		m_fpsTextRenderer->Update(m_timer);
 	});
