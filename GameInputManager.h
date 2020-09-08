@@ -53,7 +53,6 @@ public:
 	static GameInputManager* InitPlatformManager(CoreWindow^ window);
 	void Update(DX::StepTimer const& timer);
 	void SetMessageSystem(GameMessageSystem* messageSystem);
-	Gamepad^ GetFirstGamepad();
 
 private:
 	/// <summary>
@@ -87,6 +86,7 @@ private:
 	LARGE_INTEGER m_timerFrequency;
 	GameMessageSystem* m_messageSystem;
 	Vector<Gamepad^>^ m_myGamepads;
+	Gamepad^ GetFirstGamepad();
 
 	GameInputManager();
 
