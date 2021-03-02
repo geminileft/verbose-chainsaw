@@ -5,9 +5,12 @@
 #include "..\Common\StepTimer.h"
 #include "GameMessageSystem.h"
 
+
 namespace App1
 {
 	// This sample renderer instantiates a basic rendering pipeline.
+	using namespace concurrency;
+
 	class Sample3DSceneRenderer
 	{
 	public:
@@ -26,6 +29,9 @@ namespace App1
 
 	private:
 		void Rotate(float radians);
+		void CreateCubeMesh();
+		void CreateSampleVertexShader(const std::vector<byte>& fileData);
+		void CreateSamplePixelShader(const std::vector<byte>& fileData);
 
 	private:
 		// Cached pointer to device resources.
