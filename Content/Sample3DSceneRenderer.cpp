@@ -183,7 +183,7 @@ void Sample3DSceneRenderer::Render()
 
 	// Send the constant buffer to the graphics device.
 	context->VSSetConstantBuffers1(
-		0,
+		1,
 		1,
 		m_constantBuffer.GetAddressOf(),
 		nullptr,

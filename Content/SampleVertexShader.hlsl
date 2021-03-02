@@ -1,5 +1,5 @@
 // A constant buffer that stores the three basic column-major matrices for composing geometry.
-cbuffer ModelViewProjectionConstantBuffer : register(b0)
+cbuffer ModelViewProjectionConstantBuffer22asw346 : register(b1)
 {
 	matrix model;
 	matrix view;
