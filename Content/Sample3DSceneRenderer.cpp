@@ -156,6 +156,7 @@ void Sample3DSceneRenderer::Render()
 	// Each vertex is one instance of the VertexPositionColor struct.
 	UINT stride = sizeof(VertexPositionColor);
 	UINT offset = 0;
+
 	context->IASetVertexBuffers(
 		0,
 		1,
@@ -174,13 +175,6 @@ void Sample3DSceneRenderer::Render()
 
 	context->IASetInputLayout(m_inputLayout.Get());
 
-	// Attach our vertex shader.
-	context->VSSetShader(
-		m_vertexShader.Get(),
-		nullptr,
-		0
-		);
-
 	// Send the constant buffer to the graphics device.
 	context->VSSetConstantBuffers1(
 		1,
@@ -189,6 +183,13 @@ void Sample3DSceneRenderer::Render()
 		nullptr,
 		nullptr
 		);
+
+	// Attach our vertex shader.
+	context->VSSetShader(
+		m_vertexShader.Get(),
+		nullptr,
+		0
+	);
 
 	// Attach our pixel shader.
 	context->PSSetShader(
