@@ -28,7 +28,6 @@ namespace App1
 		// Cached pointer to device resources.
 		std::shared_ptr<DX::DeviceResources> m_deviceResources;
 
-		// TODO: Replace with your own content renderers.
 		// std::unique_ptr<
 		std::unique_ptr<GameInputManager> m_inputManager;
 		std::unique_ptr<Sample3DSceneRenderer> m_sceneRenderer;
