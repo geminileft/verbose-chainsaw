@@ -30,6 +30,7 @@ namespace App1
 	private:
 		void Rotate(float radians);
 		void CreateCubeMesh();
+		void CreateNonIndexedCubeMesh();
 		void CreateSampleVertexShader(const std::vector<byte>& fileData);
 		void CreateSamplePixelShader(const std::vector<byte>& fileData);
 
@@ -40,6 +41,7 @@ namespace App1
 		// Direct3D resources for cube geometry.
 		Microsoft::WRL::ComPtr<ID3D11InputLayout>	m_inputLayout;
 		Microsoft::WRL::ComPtr<ID3D11Buffer>		m_vertexBuffer;
+		Microsoft::WRL::ComPtr<ID3D11Buffer>		m_cubeVertexBuffer;
 		Microsoft::WRL::ComPtr<ID3D11Buffer>		m_indexBuffer;
 		Microsoft::WRL::ComPtr<ID3D11VertexShader>	m_vertexShader;
 		Microsoft::WRL::ComPtr<ID3D11PixelShader>	m_pixelShader;
@@ -48,6 +50,7 @@ namespace App1
 		// System resources for cube geometry.
 		ModelViewProjectionConstantBuffer	m_constantBufferData;
 		uint32	m_indexCount;
+		uint32  m_vertexCount;
 		double m_totalRotation = 0;
 
 		// Variables used with the rendering loop.

@@ -160,7 +160,7 @@ void Sample3DSceneRenderer::Render()
 	context->IASetVertexBuffers(
 		0,
 		1,
-		m_vertexBuffer.GetAddressOf(),
+		m_cubeVertexBuffer.GetAddressOf(),
 		&stride,
 		&offset
 		);
@@ -199,11 +199,10 @@ void Sample3DSceneRenderer::Render()
 		);
 
 	// Draw the objects.
-	context->DrawIndexed(
-		m_indexCount,
-		0,
+	context->Draw(
+		m_vertexCount,
 		0
-		);
+	);
 }
 
 void Sample3DSceneRenderer::CreateCubeMesh()
@@ -212,10 +211,10 @@ void Sample3DSceneRenderer::CreateCubeMesh()
 	// Load mesh vertices. Each vertex has a position and a color.
 	static const VertexPositionColor cubeVertices[] =
 	{
-		{XMFLOAT3(-0.5f, -0.5f, -0.5f), XMFLOAT3(0.0f, 0.0f, 0.0f)},
-		{XMFLOAT3(-0.5f, -0.5f,  0.5f), XMFLOAT3(0.0f, 0.0f, 1.0f)},
-		{XMFLOAT3(-0.5f,  0.5f, -0.5f), XMFLOAT3(0.0f, 1.0f, 0.0f)},
-		{XMFLOAT3(-0.5f,  0.5f,  0.5f), XMFLOAT3(0.0f, 1.0f, 1.0f)},
+		{XMFLOAT3(-0.5f, -0.5f, -0.5f), XMFLOAT3(1.0f, 0.0f, 0.0f)},
+		{XMFLOAT3(-0.5f, -0.5f,  0.5f), XMFLOAT3(1.0f, 0.0f, 0.0f)},
+		{XMFLOAT3(-0.5f,  0.5f, -0.5f), XMFLOAT3(1.0f, 0.0f, 0.0f)},
+		{XMFLOAT3(-0.5f,  0.5f,  0.5f), XMFLOAT3(1.0f, 0.0f, 0.0f)},
 		{XMFLOAT3(0.5f, -0.5f, -0.5f), XMFLOAT3(1.0f, 0.0f, 0.0f)},
 		{XMFLOAT3(0.5f, -0.5f,  0.5f), XMFLOAT3(1.0f, 0.0f, 1.0f)},
 		{XMFLOAT3(0.5f,  0.5f, -0.5f), XMFLOAT3(1.0f, 1.0f, 0.0f)},
@@ -273,6 +272,64 @@ void Sample3DSceneRenderer::CreateCubeMesh()
 			&indexBufferDesc,
 			&indexBufferData,
 			&m_indexBuffer
+		)
+	);
+
+}
+
+void App1::Sample3DSceneRenderer::CreateNonIndexedCubeMesh()
+{
+
+	// Load mesh vertices. Each vertex has a position and a color.
+	static const VertexPositionColor cubeVertices[] =
+	{
+		{XMFLOAT3(-0.5f, -0.5f, -0.5f), XMFLOAT3(0.0f, 0.0f, 0.0f)},
+		{XMFLOAT3(-0.5f, -0.5f,  0.5f), XMFLOAT3(0.0f, 0.0f, 1.0f)},
+		{XMFLOAT3(-0.5f,  0.5f, -0.5f), XMFLOAT3(0.0f, 1.0f, 0.0f)},
+		{XMFLOAT3(-0.5f,  0.5f,  0.5f), XMFLOAT3(0.0f, 1.0f, 1.0f)},
+		{XMFLOAT3(0.5f, -0.5f, -0.5f), XMFLOAT3(1.0f, 0.0f, 0.0f)},
+		{XMFLOAT3(0.5f, -0.5f,  0.5f), XMFLOAT3(1.0f, 0.0f, 1.0f)},
+		{XMFLOAT3(0.5f,  0.5f, -0.5f), XMFLOAT3(1.0f, 1.0f, 0.0f)},
+		{XMFLOAT3(0.5f,  0.5f,  0.5f), XMFLOAT3(1.0f, 1.0f, 1.0f)},
+	};
+
+	static const unsigned short cubeIndices[] =
+	{
+		0,2,1, // -x
+		1,2,3,
+
+		4,5,6, // +x
+		5,7,6,
+
+		0,1,5, // -y
+		0,5,4,
+
+		2,6,7, // +y
+		2,7,3,
+
+		0,4,6, // -z
+		0,6,2,
+
+		1,3,7, // +z
+		1,7,5,
+	};
+
+	const int indexCount = sizeof(cubeIndices) / sizeof(cubeIndices[0]);
+	static VertexPositionColor cubeVertices2[indexCount];
+	for (int i = 0; i < indexCount; ++i) {
+		cubeVertices2[i] = cubeVertices[cubeIndices[i]];
+	}
+	m_vertexCount = indexCount;
+	D3D11_SUBRESOURCE_DATA vertexBufferData = { 0 };
+	vertexBufferData.pSysMem = cubeVertices2;
+	vertexBufferData.SysMemPitch = 0;
+	vertexBufferData.SysMemSlicePitch = 0;
+	CD3D11_BUFFER_DESC vertexBufferDesc(sizeof(cubeVertices2), D3D11_BIND_VERTEX_BUFFER);
+	DX::ThrowIfFailed(
+		m_deviceResources->GetD3DDevice()->CreateBuffer(
+			&vertexBufferDesc,
+			&vertexBufferData,
+			&m_cubeVertexBuffer
 		)
 	);
 
@@ -345,8 +402,8 @@ void Sample3DSceneRenderer::CreateDeviceDependentResources()
 
 	// Once both shaders are loaded, create the mesh.
 	auto createCubeTask = (createPSTask && createVSTask).then([this]() {
-		CreateCubeMesh();
-	});
+		CreateNonIndexedCubeMesh();
+		});
 
 	// Once the cube is loaded, the object is ready to be rendered.
 	createCubeTask.then([this] () {
