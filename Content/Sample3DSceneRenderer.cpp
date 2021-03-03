@@ -20,6 +20,83 @@ Sample3DSceneRenderer::Sample3DSceneRenderer(const std::shared_ptr<DX::DeviceRes
 	CreateWindowSizeDependentResources();
 }
 
+void Sample3DSceneRenderer::CreateDeviceDependentResources()
+{
+	// Load shaders asynchronously.
+	auto loadVSTask = DX::ReadDataAsync(L"SampleVertexShader.cso");
+	auto loadPSTask = DX::ReadDataAsync(L"SamplePixelShader.cso");
+
+	// After the vertex shader file is loaded, create the shader and input layout.
+	auto createVSTask = loadVSTask.then([this](const std::vector<byte>& fileData) {
+		CreateSampleVertexShader(fileData);
+		});
+
+	// After the pixel shader file is loaded, create the shader and constant buffer.
+	auto createPSTask = loadPSTask.then([this](const std::vector<byte>& fileData) {
+		CreateSamplePixelShader(fileData);
+		});
+
+	// Once both shaders are loaded, create the mesh.
+	auto createCubeTask = (createPSTask && createVSTask).then([this]() {
+		CreateNonIndexedCubeMesh();
+		});
+
+	// Once the cube is loaded, the object is ready to be rendered.
+	createCubeTask.then([this]() {
+		m_loadingComplete = true;
+		});
+}
+
+void App1::Sample3DSceneRenderer::CreateSampleVertexShader(const std::vector<byte>& fileData)
+{
+	DX::ThrowIfFailed(
+		m_deviceResources->GetD3DDevice()->CreateVertexShader(
+			&fileData[0],
+			fileData.size(),
+			nullptr,
+			&m_vertexShader
+		)
+	);
+
+	static const D3D11_INPUT_ELEMENT_DESC vertexDesc[] =
+	{
+		{ "POSITION", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, 0, D3D11_INPUT_PER_VERTEX_DATA, 0 },
+		{ "COLOR", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, 12, D3D11_INPUT_PER_VERTEX_DATA, 0 },
+		{ "NORMAL", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, 24, D3D11_INPUT_PER_VERTEX_DATA, 0 },
+	};
+
+	DX::ThrowIfFailed(
+		m_deviceResources->GetD3DDevice()->CreateInputLayout(
+			vertexDesc,
+			ARRAYSIZE(vertexDesc),
+			&fileData[0],
+			fileData.size(),
+			&m_inputLayout
+		)
+	);
+}
+
+void App1::Sample3DSceneRenderer::CreateSamplePixelShader(const std::vector<byte>& fileData)
+{
+	DX::ThrowIfFailed(
+		m_deviceResources->GetD3DDevice()->CreatePixelShader(
+			&fileData[0],
+			fileData.size(),
+			nullptr,
+			&m_pixelShader
+		)
+	);
+
+	CD3D11_BUFFER_DESC constantBufferDesc(sizeof(ModelViewProjectionConstantBuffer), D3D11_BIND_CONSTANT_BUFFER);
+	DX::ThrowIfFailed(
+		m_deviceResources->GetD3DDevice()->CreateBuffer(
+			&constantBufferDesc,
+			nullptr,
+			&m_constantBuffer
+		)
+	);
+}
+
 // Initializes view parameters when the window size changes.
 void Sample3DSceneRenderer::CreateWindowSizeDependentResources()
 {
@@ -91,6 +168,7 @@ void Sample3DSceneRenderer::Update(DX::StepTimer const& timer)
 		float radians = static_cast<float>(fmod(m_totalRotation, XM_2PI));
 
 		Rotate(radians);
+
 	}
 }
 
@@ -98,7 +176,9 @@ void Sample3DSceneRenderer::Update(DX::StepTimer const& timer)
 void Sample3DSceneRenderer::Rotate(float radians)
 {
 	// Prepare to pass the updated model matrix to the shader
-	XMStoreFloat4x4(&m_constantBufferData.model, XMMatrixTranspose(XMMatrixRotationY(radians)));
+	auto modelMatrix = XMMatrixTranspose(XMMatrixRotationY(radians));
+	XMStoreFloat4x4(&m_constantBufferData.model, modelMatrix);
+	XMStoreFloat4x4(&m_constantBufferData.normal, XMMatrixTranspose(XMMatrixInverse(nullptr, modelMatrix)));
 }
 
 void Sample3DSceneRenderer::StartTracking()
@@ -302,12 +382,12 @@ void App1::Sample3DSceneRenderer::CreateNonIndexedCubeMesh()
 	, {XMFLOAT3(0.5f, 0.5f, 0.5f), XMFLOAT3(0.0f, 0.0f, 1.0f), XMFLOAT3(1.0f, 0.0f, 0.0f)}
 	, {XMFLOAT3(0.5f, 0.5f, -0.5f), XMFLOAT3(0.0f, 0.0f, 1.0f), XMFLOAT3(1.0f, 0.0f, 0.0f)}
 
-	, {XMFLOAT3(-0.5f, -0.5f, 0.5f), XMFLOAT3(1.0f, 1.0f, 0.0f), XMFLOAT3(0.0f, 0.0f, 1.0f)}
-	, {XMFLOAT3(-0.5f, 0.5f, 0.5f), XMFLOAT3(1.0f, 1.0f, 0.0f), XMFLOAT3(0.0f, 0.0f, 1.0f)}
-	, {XMFLOAT3(0.5f, 0.5f, 0.5f), XMFLOAT3(1.0f, 1.0f, 0.0f), XMFLOAT3(0.0f, 0.0f, 1.0f)}
-	, {XMFLOAT3(-0.5f, -0.5f, 0.5f), XMFLOAT3(1.0f, 1.0f, 0.0f), XMFLOAT3(0.0f, 0.0f, 1.0f)}
-	, {XMFLOAT3(0.5f, 0.5f, 0.5f), XMFLOAT3(1.0f, 1.0f, 0.0f), XMFLOAT3(0.0f, 0.0f, 1.0f)}
-	, {XMFLOAT3(0.5f, -0.5f, 0.5f), XMFLOAT3(1.0f, 1.0f, 0.0f), XMFLOAT3(0.0f, 0.0f, 1.0f)}
+	, {XMFLOAT3(-0.5f, -0.5f, 0.5f), XMFLOAT3(1.0f, 1.0f, 0.0f), XMFLOAT3(0.0f, 0.0f, -1.0f)}
+	, {XMFLOAT3(-0.5f, 0.5f, 0.5f), XMFLOAT3(1.0f, 1.0f, 0.0f), XMFLOAT3(0.0f, 0.0f, -1.0f)}
+	, {XMFLOAT3(0.5f, 0.5f, 0.5f), XMFLOAT3(1.0f, 1.0f, 0.0f), XMFLOAT3(0.0f, 0.0f, -1.0f)}
+	, {XMFLOAT3(-0.5f, -0.5f, 0.5f), XMFLOAT3(1.0f, 1.0f, 0.0f), XMFLOAT3(0.0f, 0.0f, -1.0f)}
+	, {XMFLOAT3(0.5f, 0.5f, 0.5f), XMFLOAT3(1.0f, 1.0f, 0.0f), XMFLOAT3(0.0f, 0.0f, -1.0f)}
+	, {XMFLOAT3(0.5f, -0.5f, 0.5f), XMFLOAT3(1.0f, 1.0f, 0.0f), XMFLOAT3(0.0f, 0.0f, -1.0f)}
 
 	, {XMFLOAT3(-0.5f, -0.5f, -0.5f), XMFLOAT3(1.0f, 0.0f, 1.0f), XMFLOAT3(-1.0f, 0.0f, 0.0f)}
 	, {XMFLOAT3(-0.5f, 0.5f, -0.5f), XMFLOAT3(1.0f, 0.0f, 1.0f), XMFLOAT3(-1.0f, 0.0f, 0.0f)}
@@ -316,12 +396,12 @@ void App1::Sample3DSceneRenderer::CreateNonIndexedCubeMesh()
 	, {XMFLOAT3(-0.5f, 0.5f, -0.5f), XMFLOAT3(1.0f, 0.0f, 1.0f), XMFLOAT3(-1.0f, 0.0f, 0.0f)}
 	, {XMFLOAT3(-0.5f, 0.5f, 0.5f), XMFLOAT3(1.0f, 0.0f, 1.0f), XMFLOAT3(-1.0f, 0.0f, 0.0f)}
 
-	, {XMFLOAT3(-0.5f, -0.5f, -0.5f), XMFLOAT3(0.0f, 1.0f, 1.0f), XMFLOAT3(0.0f, 0.0f, -1.0f)}
-	, {XMFLOAT3(0.5f, -0.5f, -0.5f), XMFLOAT3(0.0f, 1.0f, 1.0f), XMFLOAT3(0.0f, 0.0f, -1.0f)}
-	, {XMFLOAT3(0.5f, 0.5f, -0.5f), XMFLOAT3(0.0f, 1.0f, 1.0f), XMFLOAT3(0.0f, 0.0f, -1.0f)}
-	, {XMFLOAT3(-0.5f, -0.5f, -0.5f), XMFLOAT3(0.0f, 1.0f, 1.0f), XMFLOAT3(0.0f, 0.0f, -1.0f)}
-	, {XMFLOAT3(0.5f, 0.5f, -0.5f), XMFLOAT3(0.0f, 1.0f, 1.0f), XMFLOAT3(0.0f, 0.0f, -1.0f)}
-	, {XMFLOAT3(-0.5f, 0.5f, -0.5f), XMFLOAT3(0.0f, 1.0f, 1.0f), XMFLOAT3(0.0f, 0.0f, -1.0f)}
+	, {XMFLOAT3(-0.5f, -0.5f, -0.5f), XMFLOAT3(0.0f, 1.0f, 1.0f), XMFLOAT3(0.0f, 0.0f, 1.0f)}
+	, {XMFLOAT3(0.5f, -0.5f, -0.5f), XMFLOAT3(0.0f, 1.0f, 1.0f), XMFLOAT3(0.0f, 0.0f, 1.0f)}
+	, {XMFLOAT3(0.5f, 0.5f, -0.5f), XMFLOAT3(0.0f, 1.0f, 1.0f), XMFLOAT3(0.0f, 0.0f, 1.0f)}
+	, {XMFLOAT3(-0.5f, -0.5f, -0.5f), XMFLOAT3(0.0f, 1.0f, 1.0f), XMFLOAT3(0.0f, 0.0f, 1.0f)}
+	, {XMFLOAT3(0.5f, 0.5f, -0.5f), XMFLOAT3(0.0f, 1.0f, 1.0f), XMFLOAT3(0.0f, 0.0f, 1.0f)}
+	, {XMFLOAT3(-0.5f, 0.5f, -0.5f), XMFLOAT3(0.0f, 1.0f, 1.0f), XMFLOAT3(0.0f, 0.0f, 1.0f)}
 	};
 
 	// Load mesh vertices. Each vertex has a position and a color.
@@ -377,84 +457,6 @@ void App1::Sample3DSceneRenderer::CreateNonIndexedCubeMesh()
 		)
 	);
 	m_vertexCount = sizeof(cubeVertices3) / sizeof(cubeVertices3[0]);
-}
-
-void App1::Sample3DSceneRenderer::CreateSampleVertexShader(const std::vector<byte>& fileData)
-{
-	DX::ThrowIfFailed(
-		m_deviceResources->GetD3DDevice()->CreateVertexShader(
-			&fileData[0],
-			fileData.size(),
-			nullptr,
-			&m_vertexShader
-		)
-	);
-
-	// TODO: ADD NORMAL SUPPORT
-	static const D3D11_INPUT_ELEMENT_DESC vertexDesc[] =
-	{
-		{ "POSITION", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, 0, D3D11_INPUT_PER_VERTEX_DATA, 0 },
-		{ "COLOR", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, 12, D3D11_INPUT_PER_VERTEX_DATA, 0 },
-		{ "NORMAL", 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, 24, D3D11_INPUT_PER_VERTEX_DATA, 0 },
-	};
-
-	DX::ThrowIfFailed(
-		m_deviceResources->GetD3DDevice()->CreateInputLayout(
-			vertexDesc,
-			ARRAYSIZE(vertexDesc),
-			&fileData[0],
-			fileData.size(),
-			&m_inputLayout
-		)
-	);
-}
-
-void App1::Sample3DSceneRenderer::CreateSamplePixelShader(const std::vector<byte>& fileData)
-{
-	DX::ThrowIfFailed(
-		m_deviceResources->GetD3DDevice()->CreatePixelShader(
-			&fileData[0],
-			fileData.size(),
-			nullptr,
-			&m_pixelShader
-		)
-	);
-
-	CD3D11_BUFFER_DESC constantBufferDesc(sizeof(ModelViewProjectionConstantBuffer), D3D11_BIND_CONSTANT_BUFFER);
-	DX::ThrowIfFailed(
-		m_deviceResources->GetD3DDevice()->CreateBuffer(
-			&constantBufferDesc,
-			nullptr,
-			&m_constantBuffer
-		)
-	);
-}
-
-void Sample3DSceneRenderer::CreateDeviceDependentResources()
-{
-	// Load shaders asynchronously.
-	auto loadVSTask = DX::ReadDataAsync(L"SampleVertexShader.cso");
-	auto loadPSTask = DX::ReadDataAsync(L"SamplePixelShader.cso");
-
-	// After the vertex shader file is loaded, create the shader and input layout.
-	auto createVSTask = loadVSTask.then([this](const std::vector<byte>& fileData) {
-		CreateSampleVertexShader(fileData);
-		});
-
-	// After the pixel shader file is loaded, create the shader and constant buffer.
-	auto createPSTask = loadPSTask.then([this](const std::vector<byte>& fileData) {
-		CreateSamplePixelShader(fileData);
-		});
-
-	// Once both shaders are loaded, create the mesh.
-	auto createCubeTask = (createPSTask && createVSTask).then([this]() {
-		CreateNonIndexedCubeMesh();
-		});
-
-	// Once the cube is loaded, the object is ready to be rendered.
-	createCubeTask.then([this] () {
-		m_loadingComplete = true;
-	});
 }
 
 void Sample3DSceneRenderer::ReleaseDeviceDependentResources()
