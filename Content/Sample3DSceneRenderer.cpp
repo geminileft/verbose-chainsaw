@@ -279,6 +279,51 @@ void Sample3DSceneRenderer::CreateCubeMesh()
 
 void App1::Sample3DSceneRenderer::CreateNonIndexedCubeMesh()
 {
+	static const VertexPositionColor cubeVertices3[] =
+	{
+	{XMFLOAT3(-0.5f, -0.5f, -0.5f), XMFLOAT3(1.0f, 0.0f, 0.0f)}
+	, {XMFLOAT3(-0.5f, -0.5f, 0.5f), XMFLOAT3(1.0f, 0.0f, 0.0f)}
+	, {XMFLOAT3(0.5f, -0.5f, 0.5f), XMFLOAT3(1.0f, 0.0f, 0.0f)}
+	, {XMFLOAT3(-0.5f, -0.5f, -0.5f), XMFLOAT3(1.0f, 0.0f, 0.0f)}
+	, {XMFLOAT3(0.5f, -0.5f, 0.5f), XMFLOAT3(1.0f, 0.0f, 0.0f)}
+	, {XMFLOAT3(0.5f, -0.5f, -0.5f), XMFLOAT3(1.0f, 0.0f, 0.0f)}
+
+	// below doesn't appear to work
+	, {XMFLOAT3(-0.5f, 0.5f, -0.5f), XMFLOAT3(0.0f, 1.0f, 0.0f)}
+	, {XMFLOAT3(0.5f, 0.5f, -0.5f), XMFLOAT3(0.0f, 1.0f, 0.0f)}
+	, {XMFLOAT3(0.5f, 0.5f, 0.5f), XMFLOAT3(0.0f, 1.0f, 0.0f)}
+	, {XMFLOAT3(-0.5f, 0.5f, -0.5f), XMFLOAT3(0.0f, 1.0f, 0.0f)}
+	, {XMFLOAT3(0.5f, 0.5f, 0.5f), XMFLOAT3(0.0f, 1.0f, 0.0f)}
+	, {XMFLOAT3(-0.5f, 0.5f, 0.5f), XMFLOAT3(0.0f, 1.0f, 0.0f)}
+
+	, {XMFLOAT3(0.5f, -0.5f, -0.5f), XMFLOAT3(0.0f, 0.0f, 1.0f)}
+	, {XMFLOAT3(0.5f, -0.5f, 0.5f), XMFLOAT3(0.0f, 0.0f, 1.0f)}
+	, {XMFLOAT3(0.5f, 0.5f, -0.5f), XMFLOAT3(0.0f, 0.0f, 1.0f)}
+	, {XMFLOAT3(0.5f, -0.5f, 0.5f), XMFLOAT3(0.0f, 0.0f, 1.0f)}
+	, {XMFLOAT3(0.5f, 0.5f, 0.5f), XMFLOAT3(0.0f, 0.0f, 1.0f)}
+	, {XMFLOAT3(0.5f, 0.5f, -0.5f), XMFLOAT3(0.0f, 0.0f, 1.0f)}
+
+	, {XMFLOAT3(-0.5f, -0.5f, 0.5f), XMFLOAT3(1.0f, 1.0f, 0.0f)}
+	, {XMFLOAT3(-0.5f, 0.5f, 0.5f), XMFLOAT3(1.0f, 1.0f, 0.0f)}
+	, {XMFLOAT3(0.5f, 0.5f, 0.5f), XMFLOAT3(1.0f, 1.0f, 0.0f)}
+	, {XMFLOAT3(-0.5f, -0.5f, 0.5f), XMFLOAT3(1.0f, 1.0f, 0.0f)}
+	, {XMFLOAT3(0.5f, 0.5f, 0.5f), XMFLOAT3(1.0f, 1.0f, 0.0f)}
+	, {XMFLOAT3(0.5f, -0.5f, 0.5f), XMFLOAT3(1.0f, 1.0f, 0.0f)}
+
+	, {XMFLOAT3(-0.5f, -0.5f, -0.5f), XMFLOAT3(1.0f, 0.0f, 1.0f)}
+	, {XMFLOAT3(-0.5f, 0.5f, -0.5f), XMFLOAT3(1.0f, 0.0f, 1.0f)}
+	, {XMFLOAT3(-0.5f, -0.5f, 0.5f), XMFLOAT3(1.0f, 0.0f, 1.0f)}
+	, {XMFLOAT3(-0.5f, -0.5f, 0.5f), XMFLOAT3(1.0f, 0.0f, 1.0f)}
+	, {XMFLOAT3(-0.5f, 0.5f, -0.5f), XMFLOAT3(1.0f, 0.0f, 1.0f)}
+	, {XMFLOAT3(-0.5f, 0.5f, 0.5f), XMFLOAT3(1.0f, 0.0f, 1.0f)}
+
+	, {XMFLOAT3(-0.5f, -0.5f, -0.5f), XMFLOAT3(0.0f, 1.0f, 1.0f)}
+	, {XMFLOAT3(0.5f, -0.5f, -0.5f), XMFLOAT3(0.0f, 1.0f, 1.0f)}
+	, {XMFLOAT3(0.5f, 0.5f, -0.5f), XMFLOAT3(0.0f, 1.0f, 1.0f)}
+	, {XMFLOAT3(-0.5f, -0.5f, -0.5f), XMFLOAT3(0.0f, 1.0f, 1.0f)}
+	, {XMFLOAT3(0.5f, 0.5f, -0.5f), XMFLOAT3(0.0f, 1.0f, 1.0f)}
+	, {XMFLOAT3(-0.5f, 0.5f, -0.5f), XMFLOAT3(0.0f, 1.0f, 1.0f)}
+	};
 
 	// Load mesh vertices. Each vertex has a position and a color.
 	static const VertexPositionColor cubeVertices[] =
@@ -287,6 +332,7 @@ void App1::Sample3DSceneRenderer::CreateNonIndexedCubeMesh()
 		{XMFLOAT3(-0.5f, -0.5f,  0.5f), XMFLOAT3(0.0f, 0.0f, 1.0f)},
 		{XMFLOAT3(-0.5f,  0.5f, -0.5f), XMFLOAT3(0.0f, 1.0f, 0.0f)},
 		{XMFLOAT3(-0.5f,  0.5f,  0.5f), XMFLOAT3(0.0f, 1.0f, 1.0f)},
+
 		{XMFLOAT3(0.5f, -0.5f, -0.5f), XMFLOAT3(1.0f, 0.0f, 0.0f)},
 		{XMFLOAT3(0.5f, -0.5f,  0.5f), XMFLOAT3(1.0f, 0.0f, 1.0f)},
 		{XMFLOAT3(0.5f,  0.5f, -0.5f), XMFLOAT3(1.0f, 1.0f, 0.0f)},
@@ -319,12 +365,11 @@ void App1::Sample3DSceneRenderer::CreateNonIndexedCubeMesh()
 	for (int i = 0; i < indexCount; ++i) {
 		cubeVertices2[i] = cubeVertices[cubeIndices[i]];
 	}
-	m_vertexCount = indexCount;
 	D3D11_SUBRESOURCE_DATA vertexBufferData = { 0 };
-	vertexBufferData.pSysMem = cubeVertices2;
+	vertexBufferData.pSysMem = cubeVertices3;
 	vertexBufferData.SysMemPitch = 0;
 	vertexBufferData.SysMemSlicePitch = 0;
-	CD3D11_BUFFER_DESC vertexBufferDesc(sizeof(cubeVertices2), D3D11_BIND_VERTEX_BUFFER);
+	CD3D11_BUFFER_DESC vertexBufferDesc(sizeof(cubeVertices3), D3D11_BIND_VERTEX_BUFFER);
 	DX::ThrowIfFailed(
 		m_deviceResources->GetD3DDevice()->CreateBuffer(
 			&vertexBufferDesc,
@@ -332,7 +377,7 @@ void App1::Sample3DSceneRenderer::CreateNonIndexedCubeMesh()
 			&m_cubeVertexBuffer
 		)
 	);
-
+	m_vertexCount = sizeof(cubeVertices3) / sizeof(cubeVertices3[0]);
 }
 
 void App1::Sample3DSceneRenderer::CreateSampleVertexShader(const std::vector<byte>& fileData)
