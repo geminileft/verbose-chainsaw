@@ -11,7 +11,7 @@ struct PixelShaderInput
 float4 main(PixelShaderInput input) : SV_TARGET
 {
 	float4 uLightPosition = float4(0.0f, 5.0f, -2.0f, 1.0f);
-	float3 uAmbientLightColor = float3(0.0f, 0.0f, 0.0f);
+	float3 uAmbientLightColor = float3(0.5f, 0.5f, 0.5f);
 	float3 uLightColor = float3(1.0f, 1.0f, 1.0f);
 
 	float4 directionVector = uLightPosition - input.pos2;
