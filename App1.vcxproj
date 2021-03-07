@@ -251,6 +251,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="App.h" />
+    <ClInclude Include="BasicReaderWriter.h" />
     <ClInclude Include="Common\DeviceResources.h" />
     <ClInclude Include="App1Main.h" />
     <ClInclude Include="Common\DirectXHelper.h" />
@@ -258,16 +259,20 @@
     <ClInclude Include="Content\Sample3DSceneRenderer.h" />
     <ClInclude Include="Content\SampleFpsTextRenderer.h" />
     <ClInclude Include="Content\ShaderStructures.h" />
+    <ClInclude Include="FileUtils.h" />
     <ClInclude Include="GameInputManager.h" />
     <ClInclude Include="GameMessageSystem.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="App.cpp" />
+    <ClCompile Include="BasicReaderWriter.cpp" />
     <ClCompile Include="Common\DeviceResources.cpp" />
     <ClCompile Include="App1Main.cpp" />
     <ClCompile Include="Content\SampleFpsTextRenderer.cpp" />
     <ClCompile Include="Content\Sample3DSceneRenderer.cpp" />
+    <ClCompile Include="FileUtils.cpp" />
     <ClCompile Include="GameInputManager.cpp" />
     <ClCompile Include="GameMessageSystem.cpp" />
     <ClCompile Include="pch.cpp">
@@ -293,6 +298,13 @@
     <FxCompile Include="Content\SampleVertexShader.hlsl">
       <ShaderType>Vertex</ShaderType>
     </FxCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="MyCheckpoints.txt" />
+    <Text Include="Resource\cube.obj" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="App1.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

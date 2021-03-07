@@ -68,6 +68,11 @@
     <Filter Include="Messaging">
       <UniqueIdentifier>{c75a3d86-f66e-4453-89aa-847f10d553aa}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resource">
+      <UniqueIdentifier>{72a2311c-5b45-4cfd-b75b-96ec216d52e1}</UniqueIdentifier>
+      <Extensions>
+      </Extensions>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="App.cpp" />
@@ -79,6 +84,8 @@
     <ClCompile Include="GameMessageSystem.cpp">
       <Filter>Messaging</Filter>
     </ClCompile>
+    <ClCompile Include="FileUtils.cpp" />
+    <ClCompile Include="BasicReaderWriter.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="App.h" />
@@ -90,6 +97,9 @@
     <ClInclude Include="GameMessageSystem.h">
       <Filter>Messaging</Filter>
     </ClInclude>
+    <ClInclude Include="FileUtils.h" />
+    <ClInclude Include="BasicReaderWriter.h" />
+    <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Assets\StoreLogo.png">
@@ -98,5 +108,14 @@
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="MyCheckpoints.txt" />
+    <Text Include="Resource\cube.obj">
+      <Filter>Resource</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="App1.rc" />
   </ItemGroup>
 </Project>

@@ -2,6 +2,7 @@
 #include "Sample3DSceneRenderer.h"
 
 #include "..\Common\DirectXHelper.h"
+#include "FileUtils.h"
 
 using namespace App1;
 
@@ -359,6 +360,10 @@ void Sample3DSceneRenderer::CreateCubeMesh()
 
 void App1::Sample3DSceneRenderer::CreateNonIndexedCubeMesh()
 {
+	
+	Platform::String^ filename = L"Resource\\cube.obj";
+	Platform::String^ fileData = FileUtils::loadTextFile(filename);
+	
 	static const VertexPositionColor cubeVertices3[] =
 	{
 	{XMFLOAT3(-0.5f, -0.5f, -0.5f), XMFLOAT3(1.0f, 0.0f, 0.0f), XMFLOAT3(0.0f, -1.0f, 0.0f)}
