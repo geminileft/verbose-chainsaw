@@ -167,6 +167,7 @@ void Sample3DSceneRenderer::Update(DX::StepTimer const& timer)
 		// Convert degrees to radians, then convert seconds to rotation angle
 		float radiansPerSecond = XMConvertToRadians(m_degreesPerSecond);
 		m_totalRotation += ( radiansPerSecond / 60.0);
+		// m_totalRotation = 2.0;
 		float radians = static_cast<float>(fmod(m_totalRotation, XM_2PI));
 
 		Rotate(radians);
