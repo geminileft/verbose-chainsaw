@@ -4,7 +4,10 @@
 #include "ShaderStructures.h"
 #include "..\Common\StepTimer.h"
 #include "GameMessageSystem.h"
+#include <vector>
+#include "ObjStructures.h"
 
+using namespace std;
 
 namespace App1
 {
@@ -31,6 +34,7 @@ namespace App1
 		void Rotate(float radians);
 		void CreateCubeMesh();
 		void CreateNonIndexedCubeMesh();
+		static vector<VertexPositionColor> CreateMeshFromObjData(ObjData data);
 		void CreateSampleVertexShader(const std::vector<byte>& fileData);
 		void CreateSamplePixelShader(const std::vector<byte>& fileData);
 
