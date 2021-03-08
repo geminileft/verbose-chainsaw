@@ -2,6 +2,7 @@
 #include "Sample3DSceneRenderer.h"
 
 #include "..\Common\DirectXHelper.h"
+#include "ObjReader.h"
 #include "FileUtils.h"
 
 using namespace App1;
@@ -362,8 +363,11 @@ void App1::Sample3DSceneRenderer::CreateNonIndexedCubeMesh()
 {
 	
 	Platform::String^ filename = L"Resource\\cube.obj";
+	ObjReader* objReader = new ObjReader();
+	objReader->readObject(filename);
 	Platform::String^ fileData = FileUtils::loadTextFile(filename);
 	
+	// position, color, normal
 	static const VertexPositionColor cubeVertices3[] =
 	{
 	{XMFLOAT3(-0.5f, -0.5f, -0.5f), XMFLOAT3(1.0f, 0.0f, 0.0f), XMFLOAT3(0.0f, -1.0f, 0.0f)}
@@ -409,46 +413,6 @@ void App1::Sample3DSceneRenderer::CreateNonIndexedCubeMesh()
 	, {XMFLOAT3(-0.5f, 0.5f, -0.5f), XMFLOAT3(0.0f, 1.0f, 1.0f), XMFLOAT3(0.0f, 0.0f, 1.0f)}
 	};
 
-	// Load mesh vertices. Each vertex has a position and a color.
-	static const VertexPositionColor cubeVertices[] =
-	{
-		{XMFLOAT3(-0.5f, -0.5f, -0.5f), XMFLOAT3(0.0f, 0.0f, 0.0f)},
-		{XMFLOAT3(-0.5f, -0.5f,  0.5f), XMFLOAT3(0.0f, 0.0f, 1.0f)},
-		{XMFLOAT3(-0.5f,  0.5f, -0.5f), XMFLOAT3(0.0f, 1.0f, 0.0f)},
-		{XMFLOAT3(-0.5f,  0.5f,  0.5f), XMFLOAT3(0.0f, 1.0f, 1.0f)},
-
-		{XMFLOAT3(0.5f, -0.5f, -0.5f), XMFLOAT3(1.0f, 0.0f, 0.0f)},
-		{XMFLOAT3(0.5f, -0.5f,  0.5f), XMFLOAT3(1.0f, 0.0f, 1.0f)},
-		{XMFLOAT3(0.5f,  0.5f, -0.5f), XMFLOAT3(1.0f, 1.0f, 0.0f)},
-		{XMFLOAT3(0.5f,  0.5f,  0.5f), XMFLOAT3(1.0f, 1.0f, 1.0f)},
-	};
-
-	static const unsigned short cubeIndices[] =
-	{
-		0,2,1, // -x
-		1,2,3,
-
-		4,5,6, // +x
-		5,7,6,
-
-		0,1,5, // -y
-		0,5,4,
-
-		2,6,7, // +y
-		2,7,3,
-
-		0,4,6, // -z
-		0,6,2,
-
-		1,3,7, // +z
-		1,7,5,
-	};
-
-	const int indexCount = sizeof(cubeIndices) / sizeof(cubeIndices[0]);
-	static VertexPositionColor cubeVertices2[indexCount];
-	for (int i = 0; i < indexCount; ++i) {
-		cubeVertices2[i] = cubeVertices[cubeIndices[i]];
-	}
 	D3D11_SUBRESOURCE_DATA vertexBufferData = { 0 };
 	vertexBufferData.pSysMem = cubeVertices3;
 	vertexBufferData.SysMemPitch = 0;
