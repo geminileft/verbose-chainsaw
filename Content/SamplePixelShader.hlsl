@@ -15,5 +15,5 @@ float4 main(PixelShaderInput input) : SV_TARGET
 	float4 lightDirection = normalize(directionVector);
 	float4 diffuse = { 0.0f, 1.0f, 0.0f, 1.0f};
 	float4 ambient = {0.0, 0.0, 0.0, 1.0};
-	return ambient + diffuse * saturate(dot(lightDirection, input.normal));
+	return ambient + float4(input.color, 1.0) * saturate(dot(lightDirection, input.normal));
 }
