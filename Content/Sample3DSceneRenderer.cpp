@@ -141,10 +141,7 @@ void Sample3DSceneRenderer::CreateWindowSizeDependentResources()
 	static const XMVECTORF32 at = { 0.0f, -0.1f, 0.0f, 0.0f };
 	static const XMVECTORF32 up = { 0.0f, 1.0f, 0.0f, 0.0f };
 
-	XMMATRIX viewMatrix = XMMatrixTranspose(XMMatrixLookAtRH(eye, at, up));
-	
-	XMStoreFloat4x4(&m_constantBufferData.view, viewMatrix);
-
+	XMStoreFloat4x4(&m_constantBufferData.view, XMMatrixTranspose(XMMatrixLookAtRH(eye, at, up)));
 }
 
 // Called once per frame, rotates the cube and calculates the model and view matrices.
@@ -169,8 +166,7 @@ void Sample3DSceneRenderer::Update(DX::StepTimer const& timer)
 
 		// Convert degrees to radians, then convert seconds to rotation angle
 		float radiansPerSecond = XMConvertToRadians(m_degreesPerSecond);
-		m_totalRotation += ( radiansPerSecond / 360.0);
-		// m_totalRotation = 2.0;
+		m_totalRotation += ( radiansPerSecond / 60.0);
 		float radians = static_cast<float>(fmod(m_totalRotation, XM_2PI));
 
 		Rotate(radians);
