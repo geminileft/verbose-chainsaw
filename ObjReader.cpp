@@ -24,6 +24,10 @@ ObjData ObjReader::readObject(Platform::String^ objFilePath)
 
 	ObjData objData;
 
+	int VERTEX_Y_INDEX = 2;
+	int VERTEX_Z_INDEX = 3;
+
+	float VERTEX_Y_MULTIPLIER = 1;
 	while (std::getline(stream, line)) {
 		auto fixedLine = line;
 		// strip trailing carriage return
@@ -39,8 +43,8 @@ ObjData ObjReader::readObject(Platform::String^ objFilePath)
 		{
 			Float3 vertex;
 			vertex.x = stof(splitVals[1]);
-			vertex.y = stof(splitVals[2]);
-			vertex.z = stof(splitVals[3]);
+			vertex.y = stof(splitVals[VERTEX_Y_INDEX]) * VERTEX_Y_MULTIPLIER;
+			vertex.z = stof(splitVals[VERTEX_Z_INDEX]);
 			objData.verticesList.push_back(vertex);
 		}
 		else if (splitVals[0] == "vn")
@@ -53,10 +57,10 @@ ObjData ObjReader::readObject(Platform::String^ objFilePath)
 		}
 		else if (splitVals[0] == "f")
 		{
-			if (splitVals.size() == 5)
+			if (splitVals.size() <= 5)
 			{
 				vector<Int3> faceVerticesData;
-				for (int i = 1; i < 5; ++i)
+				for (int i = 1; i < splitVals.size(); ++i)
 				{
 
 					auto group = splitString(splitVals[i], "/");
@@ -70,6 +74,10 @@ ObjData ObjReader::readObject(Platform::String^ objFilePath)
 					}
 				}
 				objData.facesList.push_back(faceVerticesData);
+			}
+			else
+			{
+				cout << "We have something different...";
 			}
 		}
 	}
