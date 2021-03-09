@@ -137,7 +137,7 @@ void Sample3DSceneRenderer::CreateWindowSizeDependentResources()
 		);
 	// TODO: EXTRACT AND REMOVE HARD CODING FOR CAMERA
 	// Eye is at (0,0.7,1.5), looking at point (0,-0.1,0) with the up-vector along the y-axis.
-	static const XMVECTORF32 eye = { 0.0f, 5.0f, 5.5f, 0.0f };
+	static const XMVECTORF32 eye = { 0.0f, 0.0f, 5.5f, 0.0f };
 	static const XMVECTORF32 at = { 0.0f, -0.1f, 0.0f, 0.0f };
 	static const XMVECTORF32 up = { 0.0f, 1.0f, 0.0f, 0.0f };
 
@@ -178,7 +178,7 @@ void Sample3DSceneRenderer::Update(DX::StepTimer const& timer)
 void Sample3DSceneRenderer::Rotate(float radians)
 {
 	// Prepare to pass the updated model matrix to the shader
-	auto modelMatrix = XMMatrixTranspose(XMMatrixRotationY(radians));
+	auto modelMatrix = XMMatrixTranspose(XMMatrixRotationZ(radians));
 	XMStoreFloat4x4(&m_constantBufferData.model, modelMatrix);
 	XMStoreFloat4x4(&m_constantBufferData.normal, XMMatrixTranspose(XMMatrixInverse(nullptr, modelMatrix)));
 }
@@ -457,6 +457,11 @@ vector<VertexPositionColor> App1::Sample3DSceneRenderer::CreateMeshFromObjData(O
 			Float3 position2 = data.verticesList[vIndices2.x - 1];
 			Float3 normal2 = data.normalsList[vIndices2.z - 1];
 			vertices.push_back({
+				XMFLOAT3(position0.x, position0.y, position0.z),
+				XMFLOAT3(0.7f, 0.7f, 0.7f),
+				XMFLOAT3(normal0.x, normal0.y, normal0.z)
+				});
+			vertices.push_back({
 				XMFLOAT3(position2.x, position2.y, position2.z),
 				XMFLOAT3(0.7f, 0.7f, 0.7f),
 				XMFLOAT3(normal2.x, normal2.y, normal2.z)
@@ -465,11 +470,6 @@ vector<VertexPositionColor> App1::Sample3DSceneRenderer::CreateMeshFromObjData(O
 				XMFLOAT3(position1.x, position1.y, position1.z),
 				XMFLOAT3(0.7f, 0.7f, 0.7f),
 				XMFLOAT3(normal1.x, normal1.y, normal1.z)
-				});
-			vertices.push_back({
-				XMFLOAT3(position0.x, position0.y, position0.z),
-				XMFLOAT3(0.7f, 0.7f, 0.7f),
-				XMFLOAT3(normal0.x, normal0.y, normal0.z)
 				});
 		}
 	}

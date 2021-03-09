@@ -48,15 +48,15 @@ ObjData ObjReader::readObject(Platform::String^ objFilePath)
 			Float3 normal;
 			normal.x = stof(splitVals[1]);
 			normal.y = stof(splitVals[2]);
-			normal.z = stof(splitVals[3]);
+			normal.z = -stof(splitVals[3]);
 			objData.normalsList.push_back(normal);
 		}
 		else if (splitVals[0] == "f")
 		{
-			if (splitVals.size() == 5)
+			if (splitVals.size() <= 5)
 			{
 				vector<Int3> faceVerticesData;
-				for (int i = 1; i < 5; ++i)
+				for (int i = 1; i < splitVals.size(); ++i)
 				{
 
 					auto group = splitString(splitVals[i], "/");
