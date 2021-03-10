@@ -9,6 +9,7 @@ enum class GameMessageType
 	None
 	, Action
 	, DirectionUp
+	, DirectionDown
 	, DirectionRight
 	, DirectionLeft
 	, ActionStop

@@ -149,6 +149,7 @@ void Sample3DSceneRenderer::Update(DX::StepTimer const& timer)
 {
 	if (!m_tracking)
 	{
+		const float degreeIncrement = XMConvertToRadians(45.0f) / 60.0f;
 		auto messages = m_messageSystem->GetSubscriptionMessages(m_subscriptionId);
 		while (!messages.empty()) {
 			auto nextMessage = messages.front();
@@ -156,10 +157,20 @@ void Sample3DSceneRenderer::Update(DX::StepTimer const& timer)
 				m_degreesPerSecond = 0;
 			}
 			else if (nextMessage.mType == GameMessageType::DirectionRight) {
+				m_objectRotation.y = (float)fmod(m_objectRotation.y + degreeIncrement, XM_2PI);
 				m_degreesPerSecond = 45;
 			}
 			else if (nextMessage.mType == GameMessageType::DirectionLeft) {
+				m_objectRotation.y = (float)fmod(m_objectRotation.y - degreeIncrement, XM_2PI);
 				m_degreesPerSecond = -45;
+			}
+			else if (nextMessage.mType == GameMessageType::DirectionUp) {
+				m_degreesPerSecond = -45;
+				m_objectRotation.x = (float)fmod(m_objectRotation.x - degreeIncrement, XM_2PI);
+			}
+			else if (nextMessage.mType == GameMessageType::DirectionDown) {
+				m_degreesPerSecond = -45;
+				m_objectRotation.x = (float)fmod(m_objectRotation.x + degreeIncrement, XM_2PI);
 			}
 			messages.pop();
 		}
@@ -178,7 +189,8 @@ void Sample3DSceneRenderer::Update(DX::StepTimer const& timer)
 void Sample3DSceneRenderer::Rotate(float radians)
 {
 	// Prepare to pass the updated model matrix to the shader
-	auto modelMatrix = XMMatrixTranspose(XMMatrixRotationZ(radians));
+	auto modelMatrix = XMMatrixTranspose(XMMatrixRotationRollPitchYaw(
+		m_objectRotation.x, m_objectRotation.y, m_objectRotation.z));
 	XMStoreFloat4x4(&m_constantBufferData.model, modelMatrix);
 	XMStoreFloat4x4(&m_constantBufferData.normal, XMMatrixTranspose(XMMatrixInverse(nullptr, modelMatrix)));
 }
@@ -210,6 +222,8 @@ void Sample3DSceneRenderer::SetMessageSystem(GameMessageSystem* messageSystem)
 	messageFilters.insert(GameMessageType::ActionStop);
 	messageFilters.insert(GameMessageType::DirectionLeft);
 	messageFilters.insert(GameMessageType::DirectionRight);
+	messageFilters.insert(GameMessageType::DirectionUp);
+	messageFilters.insert(GameMessageType::DirectionDown);
 	m_subscriptionId = m_messageSystem->CreateSubscription(messageFilters);
 }
 
