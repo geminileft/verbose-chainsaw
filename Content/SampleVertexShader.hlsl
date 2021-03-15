@@ -1,4 +1,3 @@
-// A constant buffer that stores the three basic column-major matrices for composing geometry.
 cbuffer ModelViewProjectionConstantBuffer22asw346 : register(b1)
 {
 	matrix model;
@@ -7,7 +6,6 @@ cbuffer ModelViewProjectionConstantBuffer22asw346 : register(b1)
 	matrix normal;
 };
 
-// Per-vertex data used as input to the vertex shader.
 struct VertexShaderInput
 {
 	float3 pos : POSITION;
@@ -24,7 +22,6 @@ struct PixelShaderInput
 	float4 normal : NORMAL;
 };
 
-// Simple shader to do vertex processing on the GPU.
 PixelShaderInput main(VertexShaderInput input)
 {
 	PixelShaderInput output = (PixelShaderInput)0;
@@ -37,7 +34,7 @@ PixelShaderInput main(VertexShaderInput input)
 	output.pos2 = pos;
 	output.color = input.color;
 
-	output.normal = mul(normal, float4(input.normal, 0.0f));
+	output.normal = mul(input.normal, normal);
 
 	return output;
 }
