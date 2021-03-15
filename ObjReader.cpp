@@ -48,7 +48,7 @@ ObjData ObjReader::readObject(Platform::String^ objFilePath)
 			Float3 normal;
 			normal.x = stof(splitVals[1]);
 			normal.y = stof(splitVals[2]);
-			normal.z = -stof(splitVals[3]);
+			normal.z = stof(splitVals[3]);
 			objData.normalsList.push_back(normal);
 		}
 		else if (splitVals[0] == "f")

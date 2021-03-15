@@ -39,11 +39,11 @@ std::queue<GameMessageInfo> GameMessageSystem::GetSubscriptionMessages(int subsc
 	std::map<int, std::queue<GameMessageInfo>>::iterator elementIter = m_subscriptionQueues.find(subscriptionId);
 	if (elementIter != m_subscriptionQueues.end())
 	{
-		std::queue<GameMessageInfo> subscriptionMessages = elementIter->second;
-		while (!subscriptionMessages.empty())
+		std::queue<GameMessageInfo>* subscriptionMessages = &elementIter->second;
+		while (!subscriptionMessages->empty())
 		{
- 			messages.push(subscriptionMessages.front());
-			subscriptionMessages.pop();
+ 			messages.push(subscriptionMessages->front());
+			subscriptionMessages->pop();
 		}
 	}
 	

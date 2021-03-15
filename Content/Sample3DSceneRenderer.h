@@ -56,6 +56,7 @@ namespace App1
 		uint32	m_indexCount;
 		uint32  m_vertexCount;
 		double m_totalRotation = 0;
+		DirectX::XMFLOAT3 m_objectRotation = DirectX::XMFLOAT3(0.0f,0.0f,0.0f);
 
 		// Variables used with the rendering loop.
 		bool	m_loadingComplete;

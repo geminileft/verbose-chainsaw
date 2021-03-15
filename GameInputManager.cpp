@@ -59,6 +59,12 @@ void GameInputManager::Update(DX::StepTimer const& timer)
                 info.mType = GameMessageType::DirectionUp;
                 m_messageSystem->Broadcast(info);
             }
+            else if (event.value == "<DOWN>")
+            {
+                GameMessageInfo info;
+                info.mType = GameMessageType::DirectionDown;
+                m_messageSystem->Broadcast(info);
+            }
             else if (event.value == "<RIGHT>")
             {
                 GameMessageInfo info;
@@ -129,6 +135,9 @@ void GameInputManager::PlatformInputForwarder::OnKeyDown(CoreWindow^ sender, Key
     std::string keyValue = "";
     auto inputKey = args->VirtualKey;
     switch (inputKey) {
+    case VirtualKey::Down:
+        keyValue = "<DOWN>";
+        break;
     case VirtualKey::Up:
         keyValue = "<UP>";
         break;
