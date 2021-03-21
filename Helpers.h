@@ -5,16 +5,20 @@
 
 using namespace std;
 
-vector<string> splitString(string input, const char * separators) {
-	vector<string> splitVals;
-	char* next_token1 = NULL;
-	char* token1 = NULL;
-	token1 = strtok_s(&input[0], separators, &next_token1);
-	while ((token1 != NULL))
-	{
-		splitVals.push_back(token1);
-		token1 = strtok_s(NULL, separators, &next_token1);
+vector<string> splitString(const std::string& s, const std::string& delim)
+{
+    vector<string> v;
+    v.reserve(20);
+    auto start = 0U;
+    auto end = s.find(delim);
+    while (end != std::string::npos)
+    {
+		v.push_back(s.substr(start, end - start));
+        // std::cout << s.substr(start, end - start) << std::endl;
+        start = end + delim.length();
+        end = s.find(delim, start);
+    }
 
-	}
-	return splitVals;
+    v.push_back(s.substr(start, end));
+    return v;
 }

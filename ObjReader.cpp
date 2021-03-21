@@ -53,24 +53,23 @@ ObjData ObjReader::readObject(Platform::String^ objFilePath)
 		}
 		else if (splitVals[0] == "f")
 		{
-			if (splitVals.size() <= 5)
+			vector<Int3> faceVerticesData;
+			for (int i = 1; i < splitVals.size(); ++i)
 			{
-				vector<Int3> faceVerticesData;
-				for (int i = 1; i < splitVals.size(); ++i)
+				auto group = splitString(splitVals[i], "/");
+				if (group.size() == 3)
 				{
-
-					auto group = splitString(splitVals[i], "/");
-					if (group.size() == 3)
-					{
-						Int3 faceVertexIndices;
-						faceVertexIndices.x = stoi(group[0]);
-						faceVertexIndices.y = stoi(group[1]);
-						faceVertexIndices.z = stoi(group[2]);
-						faceVerticesData.push_back(faceVertexIndices);
-					}
+					Int3 faceVertexIndices;
+					faceVertexIndices.x = stoi(group[0]);
+					faceVertexIndices.y = group[1].length() == 0 ? -1 : stoi(group[1]);
+					faceVertexIndices.z = stoi(group[2]);
+					faceVerticesData.push_back(faceVertexIndices);
 				}
-				objData.facesList.push_back(faceVerticesData);
+				else {
+					auto unknownFaceCount = 1;
+				}
 			}
+			objData.facesList.push_back(faceVerticesData);
 		}
 	}
 	return objData;
