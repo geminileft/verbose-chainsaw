@@ -34,7 +34,7 @@ namespace App1
 		void Rotate(float radians);
 		void CreateCubeMesh();
 		void CreateNonIndexedCubeMesh();
-		static vector<VertexPositionColor> CreateMeshFromObjData(ObjData data);
+		static vector<VertexPositionColor> CreateMeshFromObjData(ObjData data, std::map<std::string, MaterialData> matData);
 		void CreateSampleVertexShader(const std::vector<byte>& fileData);
 		void CreateSamplePixelShader(const std::vector<byte>& fileData);
 
