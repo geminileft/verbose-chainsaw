@@ -10,6 +10,18 @@ using namespace App1;
 using namespace DirectX;
 using namespace Windows::Foundation;
 
+float blendLinear2RGB(float v)
+{
+	if (v < 0.0031308f)
+	{
+		return v * 12.92f;
+	}
+	else
+	{
+		return (1.055 * pow(v, 1 / 2.4f)) - 0.055f;
+	}
+}
+
 // Loads vertex and pixel shaders from files and instantiates the cube geometry.
 Sample3DSceneRenderer::Sample3DSceneRenderer(const std::shared_ptr<DX::DeviceResources>& deviceResources) :
 	m_loadingComplete(false),
@@ -469,7 +481,9 @@ vector<VertexPositionColor> App1::Sample3DSceneRenderer::CreateMeshFromObjData(O
 		{
 			auto matVal = idxMat->second;
 			auto useMatData = matData[matVal];
-			triColor = XMFLOAT3(useMatData.kd.x * 10, useMatData.kd.y * 10, useMatData.kd.z * 10);
+			triColor = XMFLOAT3(blendLinear2RGB(useMatData.kd.x),
+				blendLinear2RGB(useMatData.kd.y),
+				blendLinear2RGB(useMatData.kd.z));
 		}
 		Int3 vIndices0 = face[0];
 		Float3 position0 = data.verticesList[vIndices0.x - 1];
