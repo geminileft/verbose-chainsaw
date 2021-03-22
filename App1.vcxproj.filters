@@ -103,6 +103,7 @@
     <ClInclude Include="resource.h" />
     <ClInclude Include="ObjReader.h" />
     <ClInclude Include="ObjStructures.h" />
+    <ClInclude Include="Helpers.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Assets\StoreLogo.png">
@@ -117,8 +118,19 @@
     <Text Include="Resource\cube.obj">
       <Filter>Resource</Filter>
     </Text>
+    <Text Include="Resource\main_mtl.txt">
+      <Filter>Resource</Filter>
+    </Text>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="App1.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\main.mtl">
+      <Filter>Resource</Filter>
+    </None>
+    <None Include="Resource\green_tree.mtl">
+      <Filter>Resource</Filter>
+    </None>
   </ItemGroup>
 </Project>

@@ -306,9 +306,18 @@
   <ItemGroup>
     <Text Include="MyCheckpoints.txt" />
     <Text Include="Resource\cube.obj" />
+    <Text Include="Resource\main_mtl.txt" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="App1.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\green_tree.mtl">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="Resource\main.mtl">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
