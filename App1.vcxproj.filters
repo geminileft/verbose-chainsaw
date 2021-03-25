@@ -121,6 +121,18 @@
     <Text Include="Resource\main_mtl.txt">
       <Filter>Resource</Filter>
     </Text>
+    <Text Include="Resource\BirchTree_1_obj.txt">
+      <Filter>Resource</Filter>
+    </Text>
+    <Text Include="Resource\BirchTree_1_mtl.txt">
+      <Filter>Resource</Filter>
+    </Text>
+    <Text Include="Resource\bridge_center_wood_obj.txt">
+      <Filter>Resource</Filter>
+    </Text>
+    <Text Include="Resource\bridge_center_wood_mtl.txt">
+      <Filter>Resource</Filter>
+    </Text>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="App1.rc" />

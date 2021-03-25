@@ -304,7 +304,11 @@
     </FxCompile>
   </ItemGroup>
   <ItemGroup>
+    <Text Include="Resource\BirchTree_1_mtl.txt" />
+    <Text Include="Resource\BirchTree_1_obj.txt" />
     <Text Include="MyCheckpoints.txt" />
+    <Text Include="Resource\bridge_center_wood_mtl.txt" />
+    <Text Include="Resource\bridge_center_wood_obj.txt" />
     <Text Include="Resource\cube.obj" />
     <Text Include="Resource\main_mtl.txt" />
   </ItemGroup>
