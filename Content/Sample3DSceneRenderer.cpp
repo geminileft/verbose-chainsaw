@@ -18,7 +18,8 @@ float blendLinear2RGB(float v)
 	}
 	else
 	{
-		return (1.055 * pow(v, 1 / 2.4f)) - 0.055f;
+		// TODO: investigate float to double conversion
+		return (float)((1.055 * pow(v, 1 / 2.4f)) - 0.055f);
 	}
 }
 
@@ -319,7 +320,7 @@ void Sample3DSceneRenderer::Render()
 
 	// Draw the objects.
 	context->Draw(
-		m_vertexCount,
+		(UINT)m_vertexCount,
 		0
 	);
 }
@@ -459,7 +460,8 @@ void App1::Sample3DSceneRenderer::CreateNonIndexedCubeMesh()
 	, {XMFLOAT3(-0.5f, 0.5f, -0.5f), XMFLOAT3(0.0f, 1.0f, 1.0f), XMFLOAT3(0.0f, 0.0f, 1.0f)}
 	};
 
-	auto mySize = sizeof(meshArr[0]) * meshData.size();
+	// TODO: IS THIS THE RIGHT CAST
+	auto mySize = (UINT) (sizeof(meshArr[0]) * meshData.size());
 	D3D11_SUBRESOURCE_DATA vertexBufferData = { 0 };
 	vertexBufferData.pSysMem = meshArr;
 	vertexBufferData.SysMemPitch = 0;
@@ -472,7 +474,6 @@ void App1::Sample3DSceneRenderer::CreateNonIndexedCubeMesh()
 			&m_cubeVertexBuffer
 		)
 	);
-	// m_vertexCount = sizeof(cubeVertices3) / sizeof(cubeVertices3[0]);
 	m_vertexCount = meshData.size();
 }
 

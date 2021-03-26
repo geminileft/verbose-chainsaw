@@ -55,7 +55,7 @@ namespace App1
 		// System resources for cube geometry.
 		ModelViewProjectionConstantBuffer	m_constantBufferData;
 		uint32	m_indexCount;
-		uint32  m_vertexCount;
+		size_t  m_vertexCount;
 		double m_totalRotation = 0;
 		DirectX::XMFLOAT3 m_objectRotation = DirectX::XMFLOAT3(0.0f,0.0f,0.0f);
 
