@@ -73,6 +73,9 @@
       <Extensions>
       </Extensions>
     </Filter>
+    <Filter Include="Resource\Wavefront">
+      <UniqueIdentifier>{491f5b95-9b03-48c1-acf8-3d96360aeca5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="App.cpp" />
@@ -138,11 +141,1987 @@
     <ResourceCompile Include="App1.rc" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resource\main.mtl">
+    <Text Include="Resource\main.mtl">
       <Filter>Resource</Filter>
-    </None>
-    <None Include="Resource\green_tree.mtl">
+    </Text>
+    <Text Include="Resource\green_tree.mtl">
       <Filter>Resource</Filter>
-    </None>
+    </Text>
+    <Text Include="Resource\Wavefront\bed.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\bed_floor.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\bridge_center_stone.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\bridge_center_stoneRound.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\bridge_center_wood.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\bridge_center_woodRound.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\bridge_side_stone.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\bridge_side_stoneRound.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\bridge_side_wood.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\bridge_side_woodRound.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\bridge_stone.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\bridge_stoneNarrow.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\bridge_stoneRound.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\bridge_stoneRoundNarrow.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\bridge_wood.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\bridge_woodNarrow.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\bridge_woodRound.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\bridge_woodRoundNarrow.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cactus_short.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cactus_tall.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\campfire_bricks.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\campfire_logs.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\campfire_planks.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\campfire_stones.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\canoe.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\canoe_paddle.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_block_rock.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_block_stone.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_blockCave_rock.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_blockCave_stone.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_blockDiagonal_rock.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_blockDiagonal_stone.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_blockHalf_rock.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_blockHalf_stone.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_blockQuarter_rock.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_blockQuarter_stone.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_blockSlope_rock.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_blockSlope_stone.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_blockSlopeHalfWalls_rock.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_blockSlopeHalfWalls_stone.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_blockSlopeWalls_rock.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_blockSlopeWalls_stone.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_cave_rock.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_cave_stone.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_corner_rock.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_corner_stone.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_cornerInner_rock.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_cornerInner_stone.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_cornerInnerLarge_rock.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_cornerInnerLarge_stone.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_cornerInnerTop_rock.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_cornerInnerTop_stone.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_cornerLarge_rock.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_cornerLarge_stone.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_cornerTop_rock.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_cornerTop_stone.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_diagonal_rock.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_diagonal_stone.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_half_rock.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_half_stone.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_halfCorner_rock.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_halfCorner_stone.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_halfCornerInner_rock.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_halfCornerInner_stone.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_large_rock.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_large_stone.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_rock.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_steps_rock.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_steps_stone.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_stepsCorner_rock.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_stepsCorner_stone.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_stepsCornerInner_rock.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_stepsCornerInner_stone.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_stone.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_top_rock.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_top_stone.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_topDiagonal_rock.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_topDiagonal_stone.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_waterfall_rock.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_waterfall_stone.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_waterfallTop_rock.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_waterfallTop_stone.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\crop_carrot.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\crop_melon.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\crop_pumpkin.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\crop_turnip.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\crops_bambooStageA.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\crops_bambooStageB.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\crops_cornStageA.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\crops_cornStageB.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\crops_cornStageC.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\crops_cornStageD.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\crops_dirtDoubleRow.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\crops_dirtDoubleRowCorner.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\crops_dirtDoubleRowEnd.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\crops_dirtRow.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\crops_dirtRowCorner.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\crops_dirtRowEnd.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\crops_dirtSingle.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\crops_leafsStageA.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\crops_leafsStageB.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\crops_wheatStageA.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\crops_wheatStageB.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\fence_bend.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\fence_bendCenter.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\fence_corner.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\fence_gate.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\fence_planks.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\fence_planksDouble.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\fence_simple.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\fence_simpleCenter.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\fence_simpleDiagonal.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\fence_simpleDiagonalCenter.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\fence_simpleHigh.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\fence_simpleLow.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\flower_purpleA.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\flower_purpleB.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\flower_purpleC.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\flower_redA.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\flower_redB.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\flower_redC.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\flower_yellowA.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\flower_yellowB.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\flower_yellowC.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\grass.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\grass_large.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\grass_leafs.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\grass_leafsLarge.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\ground_grass.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\ground_pathBend.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\ground_pathBendBank.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\ground_pathCorner.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\ground_pathCornerSmall.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\ground_pathCross.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\ground_pathEnd.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\ground_pathEndClosed.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\ground_pathOpen.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\ground_pathRocks.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\ground_pathSide.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\ground_pathSideOpen.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\ground_pathSplit.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\ground_pathStraight.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\ground_pathTile.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\ground_riverBend.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\ground_riverBendBank.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\ground_riverCorner.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\ground_riverCornerSmall.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\ground_riverCross.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\ground_riverEnd.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\ground_riverEndClosed.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\ground_riverOpen.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\ground_riverRocks.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\ground_riverSide.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\ground_riverSideOpen.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\ground_riverSplit.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\ground_riverStraight.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\ground_riverTile.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\hanging_moss.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\lily_large.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\lily_small.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\log.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\log_large.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\log_stack.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\log_stackLarge.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\mushroom_red.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\mushroom_redGroup.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\mushroom_redTall.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\mushroom_tan.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\mushroom_tanGroup.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\mushroom_tanTall.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\path_stone.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\path_stoneCircle.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\path_stoneCorner.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\path_stoneEnd.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\path_wood.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\path_woodCorner.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\path_woodEnd.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\plant_bush.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\plant_bushDetailed.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\plant_bushLarge.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\plant_bushLargeTriangle.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\plant_bushSmall.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\plant_bushTriangle.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\plant_flatShort.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\plant_flatTall.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\platform_beach.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\platform_grass.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\platform_stone.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\pot_large.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\pot_small.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\rock_largeA.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\rock_largeB.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\rock_largeC.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\rock_largeD.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\rock_largeE.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\rock_largeF.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\rock_smallA.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\rock_smallB.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\rock_smallC.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\rock_smallD.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\rock_smallE.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\rock_smallF.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\rock_smallFlatA.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\rock_smallFlatB.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\rock_smallFlatC.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\rock_smallG.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\rock_smallH.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\rock_smallI.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\rock_smallTopA.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\rock_smallTopB.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\rock_tallA.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\rock_tallB.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\rock_tallC.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\rock_tallD.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\rock_tallE.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\rock_tallF.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\rock_tallG.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\rock_tallH.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\rock_tallI.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\rock_tallJ.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\sign.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\statue_block.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\statue_column.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\statue_columnDamaged.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\statue_head.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\statue_obelisk.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\statue_ring.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\stone_largeA.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\stone_largeB.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\stone_largeC.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\stone_largeD.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\stone_largeE.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\stone_largeF.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\stone_smallA.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\stone_smallB.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\stone_smallC.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\stone_smallD.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\stone_smallE.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\stone_smallF.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\stone_smallFlatA.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\stone_smallFlatB.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\stone_smallFlatC.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\stone_smallG.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\stone_smallH.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\stone_smallI.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\stone_smallTopA.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\stone_smallTopB.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\stone_tallA.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\stone_tallB.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\stone_tallC.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\stone_tallD.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\stone_tallE.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\stone_tallF.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\stone_tallG.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\stone_tallH.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\stone_tallI.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\stone_tallJ.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\stump_old.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\stump_oldTall.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\stump_round.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\stump_roundDetailed.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\stump_square.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\stump_squareDetailed.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\stump_squareDetailedWide.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tent_detailedClosed.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tent_detailedOpen.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tent_smallClosed.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tent_smallOpen.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_blocks.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_blocks_dark.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_blocks_fall.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_cone.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_cone_dark.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_cone_fall.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_default.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_default_dark.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_default_fall.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_detailed.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_detailed_dark.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_detailed_fall.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_fat.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_fat_darkh.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_fat_fall.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_oak.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_oak_dark.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_oak_fall.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_palm.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_palmBend.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_palmDetailedShort.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_palmDetailedTall.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_palmShort.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_palmTall.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_pineDefaultA.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_pineDefaultB.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_pineGroundA.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_pineGroundB.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_pineRoundA.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_pineRoundB.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_pineRoundC.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_pineRoundD.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_pineRoundE.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_pineRoundF.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_pineSmallA.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_pineSmallB.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_pineSmallC.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_pineSmallD.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_pineTallA.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_pineTallA_detailed.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_pineTallB.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_pineTallB_detailed.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_pineTallC.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_pineTallC_detailed.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_pineTallD.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_pineTallD_detailed.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_plateau.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_plateau_dark.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_plateau_fall.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_simple.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_simple_dark.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_simple_fall.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_small.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_small_dark.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_small_fall.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_tall.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_tall_dark.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_tall_fall.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_thin.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_thin_dark.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_thin_fall.mtl">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Resource\Wavefront\bed.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\bed_floor.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\bridge_center_stone.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\bridge_center_stoneRound.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\bridge_center_wood.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\bridge_center_woodRound.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\bridge_side_stone.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\bridge_side_stoneRound.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\bridge_side_wood.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\bridge_side_woodRound.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\bridge_stone.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\bridge_stoneNarrow.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\bridge_stoneRound.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\bridge_stoneRoundNarrow.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\bridge_wood.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\bridge_woodNarrow.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\bridge_woodRound.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\bridge_woodRoundNarrow.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cactus_short.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cactus_tall.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\campfire_bricks.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\campfire_logs.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\campfire_planks.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\campfire_stones.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\canoe.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\canoe_paddle.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_block_rock.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_block_stone.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_blockCave_rock.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_blockCave_stone.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_blockDiagonal_rock.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_blockDiagonal_stone.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_blockHalf_rock.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_blockHalf_stone.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_blockQuarter_rock.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_blockQuarter_stone.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_blockSlope_rock.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_blockSlope_stone.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_blockSlopeHalfWalls_rock.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_blockSlopeHalfWalls_stone.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_blockSlopeWalls_rock.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_blockSlopeWalls_stone.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_cave_rock.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_cave_stone.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_corner_rock.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_corner_stone.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_cornerInner_rock.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_cornerInner_stone.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_cornerInnerLarge_rock.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_cornerInnerLarge_stone.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_cornerInnerTop_rock.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_cornerInnerTop_stone.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_cornerLarge_rock.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_cornerLarge_stone.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_cornerTop_rock.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_cornerTop_stone.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_diagonal_rock.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_diagonal_stone.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_half_rock.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_half_stone.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_halfCorner_rock.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_halfCorner_stone.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_halfCornerInner_rock.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_halfCornerInner_stone.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_large_rock.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_large_stone.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_rock.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_steps_rock.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_steps_stone.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_stepsCorner_rock.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_stepsCorner_stone.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_stepsCornerInner_rock.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_stepsCornerInner_stone.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_stone.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_top_rock.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_top_stone.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_topDiagonal_rock.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_topDiagonal_stone.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_waterfall_rock.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_waterfall_stone.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_waterfallTop_rock.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\cliff_waterfallTop_stone.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\crop_carrot.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\crop_melon.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\crop_pumpkin.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\crop_turnip.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\crops_bambooStageA.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\crops_bambooStageB.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\crops_cornStageA.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\crops_cornStageB.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\crops_cornStageC.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\crops_cornStageD.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\crops_dirtDoubleRow.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\crops_dirtDoubleRowCorner.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\crops_dirtDoubleRowEnd.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\crops_dirtRow.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\crops_dirtRowCorner.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\crops_dirtRowEnd.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\crops_dirtSingle.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\crops_leafsStageA.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\crops_leafsStageB.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\crops_wheatStageA.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\crops_wheatStageB.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\fence_bend.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\fence_bendCenter.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\fence_corner.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\fence_gate.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\fence_planks.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\fence_planksDouble.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\fence_simple.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\fence_simpleCenter.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\fence_simpleDiagonal.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\fence_simpleDiagonalCenter.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\fence_simpleHigh.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\fence_simpleLow.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\flower_purpleA.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\flower_purpleB.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\flower_purpleC.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\flower_redA.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\flower_redB.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\flower_redC.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\flower_yellowA.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\flower_yellowB.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\flower_yellowC.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\grass.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\grass_large.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\grass_leafs.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\grass_leafsLarge.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\ground_grass.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\ground_pathBend.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\ground_pathBendBank.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\ground_pathCorner.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\ground_pathCornerSmall.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\ground_pathCross.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\ground_pathEnd.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\ground_pathEndClosed.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\ground_pathOpen.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\ground_pathRocks.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\ground_pathSide.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\ground_pathSideOpen.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\ground_pathSplit.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\ground_pathStraight.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\ground_pathTile.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\ground_riverBend.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\ground_riverBendBank.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\ground_riverCorner.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\ground_riverCornerSmall.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\ground_riverCross.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\ground_riverEnd.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\ground_riverEndClosed.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\ground_riverOpen.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\ground_riverRocks.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\ground_riverSide.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\ground_riverSideOpen.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\ground_riverSplit.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\ground_riverStraight.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\ground_riverTile.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\hanging_moss.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\lily_large.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\lily_small.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\log.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\log_large.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\log_stack.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\log_stackLarge.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\mushroom_red.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\mushroom_redGroup.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\mushroom_redTall.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\mushroom_tan.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\mushroom_tanGroup.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\mushroom_tanTall.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\path_stone.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\path_stoneCircle.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\path_stoneCorner.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\path_stoneEnd.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\path_wood.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\path_woodCorner.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\path_woodEnd.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\plant_bush.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\plant_bushDetailed.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\plant_bushLarge.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\plant_bushLargeTriangle.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\plant_bushSmall.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\plant_bushTriangle.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\plant_flatShort.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\plant_flatTall.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\platform_beach.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\platform_grass.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\platform_stone.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\pot_large.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\pot_small.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\rock_largeA.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\rock_largeB.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\rock_largeC.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\rock_largeD.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\rock_largeE.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\rock_largeF.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\rock_smallA.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\rock_smallB.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\rock_smallC.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\rock_smallD.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\rock_smallE.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\rock_smallF.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\rock_smallFlatA.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\rock_smallFlatB.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\rock_smallFlatC.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\rock_smallG.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\rock_smallH.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\rock_smallI.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\rock_smallTopA.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\rock_smallTopB.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\rock_tallA.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\rock_tallB.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\rock_tallC.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\rock_tallD.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\rock_tallE.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\rock_tallF.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\rock_tallG.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\rock_tallH.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\rock_tallI.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\rock_tallJ.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\sign.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\statue_block.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\statue_column.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\statue_columnDamaged.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\statue_head.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\statue_obelisk.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\statue_ring.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\stone_largeA.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\stone_largeB.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\stone_largeC.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\stone_largeD.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\stone_largeE.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\stone_largeF.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\stone_smallA.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\stone_smallB.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\stone_smallC.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\stone_smallD.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\stone_smallE.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\stone_smallF.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\stone_smallFlatA.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\stone_smallFlatB.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\stone_smallFlatC.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\stone_smallG.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\stone_smallH.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\stone_smallI.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\stone_smallTopA.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\stone_smallTopB.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\stone_tallA.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\stone_tallB.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\stone_tallC.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\stone_tallD.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\stone_tallE.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\stone_tallF.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\stone_tallG.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\stone_tallH.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\stone_tallI.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\stone_tallJ.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\stump_old.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\stump_oldTall.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\stump_round.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\stump_roundDetailed.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\stump_square.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\stump_squareDetailed.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\stump_squareDetailedWide.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tent_detailedClosed.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tent_detailedOpen.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tent_smallClosed.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tent_smallOpen.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_blocks.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_blocks_dark.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_blocks_fall.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_cone.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_cone_dark.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_cone_fall.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_default.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_default_dark.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_default_fall.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_detailed.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_detailed_dark.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_detailed_fall.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_fat.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_fat_darkh.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_fat_fall.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_oak.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_oak_dark.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_oak_fall.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_palm.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_palmBend.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_palmDetailedShort.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_palmDetailedTall.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_palmShort.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_palmTall.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_pineDefaultA.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_pineDefaultB.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_pineGroundA.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_pineGroundB.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_pineRoundA.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_pineRoundB.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_pineRoundC.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_pineRoundD.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_pineRoundE.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_pineRoundF.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_pineSmallA.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_pineSmallB.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_pineSmallC.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_pineSmallD.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_pineTallA.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_pineTallA_detailed.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_pineTallB.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_pineTallB_detailed.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_pineTallC.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_pineTallC_detailed.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_pineTallD.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_pineTallD_detailed.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_plateau.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_plateau_dark.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_plateau_fall.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_simple.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_simple_dark.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_simple_fall.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_small.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_small_dark.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_small_fall.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_tall.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_tall_dark.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_tall_fall.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_thin.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_thin_dark.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
+    <Text Include="Resource\Wavefront\tree_thin_fall.obj">
+      <Filter>Resource\Wavefront</Filter>
+    </Text>
   </ItemGroup>
 </Project>
