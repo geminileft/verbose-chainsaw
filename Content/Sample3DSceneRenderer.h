@@ -6,6 +6,7 @@
 #include "GameMessageSystem.h"
 #include <vector>
 #include "ObjStructures.h"
+#include "SceneMetadata.h"
 
 using namespace std;
 
@@ -64,6 +65,7 @@ namespace App1
 		bool	m_tracking;
 		GameMessageSystem* m_messageSystem;
 		long m_subscriptionId;
+		SceneMetadata m_sceneMetadata;
 
 	};
 }
