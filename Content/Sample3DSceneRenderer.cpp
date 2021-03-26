@@ -149,8 +149,8 @@ void Sample3DSceneRenderer::CreateWindowSizeDependentResources()
 		XMMatrixTranspose(perspectiveMatrix * orientationMatrix)
 		);
 	static const XMVECTOR eye = m_sceneMetadata.getEyeLocation();
-	static const XMVECTOR at = { 0.0f, 0.0f, 0.0f, 0.0f };
-	static const XMVECTOR up = { 0.0f, 1.0f, 0.0f, 0.0f };
+	static const XMVECTOR at = m_sceneMetadata.getAtLocation();
+	static const XMVECTOR up = m_sceneMetadata.getUpVector();
 
 	XMStoreFloat4x4(&m_constantBufferData.view, XMMatrixTranspose(XMMatrixLookAtRH(eye, at, up)));
 
