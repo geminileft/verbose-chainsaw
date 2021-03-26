@@ -149,7 +149,7 @@ void Sample3DSceneRenderer::CreateWindowSizeDependentResources()
 		);
 	// TODO: EXTRACT AND REMOVE HARD CODING FOR CAMERA
 	// Eye is at (0,0.7,1.5), looking at point (0,-0.1,0) with the up-vector along the y-axis.
-	static const XMVECTORF32 eye = { 0.0f, 0.0f, 9.0f, 0.0f };
+	static const XMVECTORF32 eye = { 10.0f, 5.0f, 5.0f, 0.0f };
 	static const XMVECTORF32 at = { 0.0f, 0.0f, 0.0f, 0.0f };
 	static const XMVECTORF32 up = { 0.0f, 1.0f, 0.0f, 0.0f };
 
@@ -388,8 +388,8 @@ void Sample3DSceneRenderer::CreateCubeMesh()
 void App1::Sample3DSceneRenderer::CreateNonIndexedCubeMesh()
 {
 	
-	Platform::String^ filename = L"Resource\\cube.obj";
-	Platform::String^ mtlFilename = L"Resource\\green_tree.mtl";
+	Platform::String^ filename = L"Resource\\bridge_center_wood_obj.txt";
+	Platform::String^ mtlFilename = L"Resource\\bridge_center_wood_mtl.txt";
 	ObjReader objReader;
 	ObjData objData = objReader.readObject(filename);
 	std::map<std::string, MaterialData> allMaterial = objReader.readMaterial(mtlFilename);
