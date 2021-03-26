@@ -90,6 +90,7 @@
     <ClCompile Include="FileUtils.cpp" />
     <ClCompile Include="BasicReaderWriter.cpp" />
     <ClCompile Include="ObjReader.cpp" />
+    <ClCompile Include="SceneMetadata.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="App.h" />
@@ -107,6 +108,7 @@
     <ClInclude Include="ObjReader.h" />
     <ClInclude Include="ObjStructures.h" />
     <ClInclude Include="Helpers.h" />
+    <ClInclude Include="SceneMetadata.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Assets\StoreLogo.png">
