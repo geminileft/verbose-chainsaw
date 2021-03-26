@@ -154,6 +154,11 @@ void Sample3DSceneRenderer::CreateWindowSizeDependentResources()
 	static const XMVECTORF32 up = { 0.0f, 1.0f, 0.0f, 0.0f };
 
 	XMStoreFloat4x4(&m_constantBufferData.view, XMMatrixTranspose(XMMatrixLookAtRH(eye, at, up)));
+
+	static const XMVECTOR lightDirection = { 0.0f, 0.0f, 1.0f, 1.0f };
+	XMStoreFloat4(&m_constantBufferData.lightDirection, lightDirection);
+	// float4 lightDirection = float4(0.0f, 0.0f, 1.0f, 1.0f);
+
 }
 
 // Called once per frame, rotates the cube and calculates the model and view matrices.
@@ -297,6 +302,14 @@ void Sample3DSceneRenderer::Render()
 		m_vertexShader.Get(),
 		nullptr,
 		0
+	);
+
+	context->PSSetConstantBuffers1(
+		1,
+		1,
+		m_constantBuffer.GetAddressOf(),
+		nullptr,
+		nullptr
 	);
 
 	// Attach our pixel shader.

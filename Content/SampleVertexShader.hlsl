@@ -4,6 +4,7 @@ cbuffer ModelViewProjectionConstantBuffer22asw346 : register(b1)
 	matrix view;
 	matrix projection;
 	matrix normal;
+	float4 lightDirection;
 };
 
 struct VertexShaderInput

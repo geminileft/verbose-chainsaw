@@ -1,3 +1,12 @@
+cbuffer ModelViewProjectionConstantBuffer22asw346 : register(b1)
+{
+	matrix model;
+	matrix view;
+	matrix projection;
+	matrix normal;
+	float4 lightDirection;
+};
+
 // Per-pixel color data passed through the pixel shader.
 struct PixelShaderInput
 {
@@ -10,17 +19,6 @@ struct PixelShaderInput
 // A pass-through function for the (interpolated) color data.
 float4 main(PixelShaderInput input) : SV_TARGET
 {
-//	if (dot(input.normal, input.pos2) >= 0.0f)
-//	{
-//		input.normal = -input.normal;
-//	}
-
-	//input.normal = normalize(input.normal);
-	//float4 uLightPosition = float4(0.0f, 0.0f, 15.0f, 1.0f);
-	//float4 directionVector = uLightPosition - input.pos2;
-	//float4 lightDirection = normalize(directionVector);
-	float4 lightDirection = float4(0.0f, 0.0f, 1.0f, 1.0f);
-	float4 diffuse = { 0.0f, 1.0f, 0.0f, 1.0f};
 	float4 ambient = {0.0, 0.0, 0.0, 1.0};
 	return ambient + float4(input.color, 1.0) * saturate(dot(input.normal, lightDirection));
 }
