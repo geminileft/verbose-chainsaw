@@ -15,6 +15,7 @@ public:
 		DirectX::XMVECTOR upVector, DirectX::XMVECTOR lightDirection);
 
 	static SceneMetadata getTestScene();
+	static SceneMetadata getJsonScene(Platform::String^ jsonFilename);
 	Platform::String^ getObjFilename();
 	Platform::String^ getMtlFilename();
 	DirectX::XMVECTOR getEyeLocation();
