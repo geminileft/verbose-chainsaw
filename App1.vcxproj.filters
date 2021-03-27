@@ -76,6 +76,9 @@
     <Filter Include="Resource\Wavefront">
       <UniqueIdentifier>{491f5b95-9b03-48c1-acf8-3d96360aeca5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resource\SceneJson">
+      <UniqueIdentifier>{48a00151-368e-4125-b3eb-0ccf80b1b817}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="App.cpp" />
@@ -2125,5 +2128,10 @@
     <Text Include="Resource\Wavefront\tree_thin_fall.obj">
       <Filter>Resource\Wavefront</Filter>
     </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Main_Scene.json">
+      <Filter>Resource\SceneJson</Filter>
+    </None>
   </ItemGroup>
 </Project>

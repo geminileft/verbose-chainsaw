@@ -985,6 +985,12 @@
     <Text Include="Resource\Wavefront\tree_thin_dark.obj" />
     <Text Include="Resource\Wavefront\tree_thin_fall.obj" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Main_Scene.json">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Text</FileType>
+    </None>
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
     <Import Project="$(VSINSTALLDIR)\Common7\IDE\Extensions\Microsoft\VsGraphics\ImageContentTask.targets" />

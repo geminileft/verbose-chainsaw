@@ -30,7 +30,7 @@ Sample3DSceneRenderer::Sample3DSceneRenderer(const std::shared_ptr<DX::DeviceRes
 	m_indexCount(0),
 	m_tracking(false),
 	m_deviceResources(deviceResources),
-	m_sceneMetadata(SceneMetadata::getTestScene())
+	m_sceneMetadata(SceneMetadata::getJsonScene(L"Main_Scene.json"))
 {
 	CreateDeviceDependentResources();
 	CreateWindowSizeDependentResources();
