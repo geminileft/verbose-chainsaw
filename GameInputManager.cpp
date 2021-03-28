@@ -84,6 +84,12 @@ void GameInputManager::Update(DX::StepTimer const& timer)
                 info.mType = GameMessageType::ActionStop;
                 m_messageSystem->Broadcast(info);
             }
+            else if (event.value == "<NUMBER1>")
+            {
+                GameMessageInfo info;
+                info.mType = GameMessageType::GameSwitchInputControl;
+                m_messageSystem->Broadcast(info);
+            }
         }
         m_inputQueue.pop();
     }
@@ -133,7 +139,7 @@ Gamepad^ GameInputManager::GetFirstGamepad()
 void GameInputManager::PlatformInputForwarder::OnKeyDown(CoreWindow^ sender, KeyEventArgs^ args)
 {
     std::string keyValue = "";
-    auto inputKey = args->VirtualKey;
+    Windows::System::VirtualKey inputKey = args->VirtualKey;
     switch (inputKey) {
     case VirtualKey::Down:
         keyValue = "<DOWN>";
@@ -149,6 +155,9 @@ void GameInputManager::PlatformInputForwarder::OnKeyDown(CoreWindow^ sender, Key
         break;
     case VirtualKey::Space:
         keyValue = "<SPACE>";
+        break;
+    case VirtualKey::Number1:
+        keyValue = "<NUMBER1>";
         break;
     }
 

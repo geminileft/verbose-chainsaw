@@ -173,20 +173,36 @@ void Sample3DSceneRenderer::Update(DX::StepTimer const& timer)
 				m_degreesPerSecond = 0;
 			}
 			else if (nextMessage.mType == GameMessageType::DirectionRight) {
-				m_objectRotation.y = (float)fmod(m_objectRotation.y + degreeIncrement, XM_2PI);
-				m_degreesPerSecond = 45;
+				if (m_isObjectSelected)
+				{
+					m_objectRotation.y = (float)fmod(m_objectRotation.y + degreeIncrement, XM_2PI);
+					m_degreesPerSecond = 45;
+				}
 			}
 			else if (nextMessage.mType == GameMessageType::DirectionLeft) {
-				m_objectRotation.y = (float)fmod(m_objectRotation.y - degreeIncrement, XM_2PI);
-				m_degreesPerSecond = -45;
+				if (m_isObjectSelected)
+				{
+					m_objectRotation.y = (float)fmod(m_objectRotation.y - degreeIncrement, XM_2PI);
+					m_degreesPerSecond = -45;
+				}
 			}
 			else if (nextMessage.mType == GameMessageType::DirectionUp) {
-				m_degreesPerSecond = -45;
-				m_objectRotation.x = (float)fmod(m_objectRotation.x - degreeIncrement, XM_2PI);
+				if (m_isObjectSelected)
+				{
+					m_degreesPerSecond = -45;
+					m_objectRotation.x = (float)fmod(m_objectRotation.x - degreeIncrement, XM_2PI);
+				}
 			}
 			else if (nextMessage.mType == GameMessageType::DirectionDown) {
-				m_degreesPerSecond = -45;
-				m_objectRotation.x = (float)fmod(m_objectRotation.x + degreeIncrement, XM_2PI);
+				if (m_isObjectSelected)
+				{
+					m_degreesPerSecond = -45;
+					m_objectRotation.x = (float)fmod(m_objectRotation.x + degreeIncrement, XM_2PI);
+				}
+			}
+			else if (nextMessage.mType == GameMessageType::GameSwitchInputControl)
+			{
+				m_isObjectSelected = !m_isObjectSelected;
 			}
 			messages.pop();
 		}
@@ -240,6 +256,7 @@ void Sample3DSceneRenderer::SetMessageSystem(GameMessageSystem* messageSystem)
 	messageFilters.insert(GameMessageType::DirectionRight);
 	messageFilters.insert(GameMessageType::DirectionUp);
 	messageFilters.insert(GameMessageType::DirectionDown);
+	messageFilters.insert(GameMessageType::GameSwitchInputControl);
 	m_subscriptionId = m_messageSystem->CreateSubscription(messageFilters);
 }
 
