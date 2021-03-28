@@ -46,6 +46,15 @@ SampleFpsTextRenderer::SampleFpsTextRenderer(const std::shared_ptr<DX::DeviceRes
 // Updates the text to be displayed.
 void SampleFpsTextRenderer::Update(DX::StepTimer const& timer)
 {
+	auto messages = m_messageSystem->GetSubscriptionMessages(m_subscriptionId);
+	while (!messages.empty()) {
+		auto nextMessage = messages.front();
+		if (nextMessage.mType == GameMessageType::GameSwitchInputControl)
+		{
+			m_isObjectSelected = !m_isObjectSelected;
+		}
+		messages.pop();
+	}
 	// Update display text.
 	uint32 fps = timer.GetFramesPerSecond();
 
@@ -108,6 +117,14 @@ void SampleFpsTextRenderer::Render()
 	}
 
 	context->RestoreDrawingState(m_stateBlock.Get());
+}
+
+void App1::SampleFpsTextRenderer::SetMessageSystem(GameMessageSystem* messageSystem)
+{
+	m_messageSystem = messageSystem;
+	std::set<GameMessageType> messageFilters;
+	messageFilters.insert(GameMessageType::GameSwitchInputControl);
+	m_subscriptionId = m_messageSystem->CreateSubscription(messageFilters);
 }
 
 void SampleFpsTextRenderer::CreateDeviceDependentResources()

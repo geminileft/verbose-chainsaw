@@ -3,6 +3,7 @@
 #include <string>
 #include "..\Common\DeviceResources.h"
 #include "..\Common\StepTimer.h"
+#include "GameMessageSystem.h"
 
 namespace App1
 {
@@ -15,6 +16,7 @@ namespace App1
 		void ReleaseDeviceDependentResources();
 		void Update(DX::StepTimer const& timer);
 		void Render();
+		void SetMessageSystem(GameMessageSystem* messageSystem);
 
 	private:
 		// Cached pointer to device resources.
@@ -27,5 +29,8 @@ namespace App1
 		Microsoft::WRL::ComPtr<ID2D1DrawingStateBlock1> m_stateBlock;
 		Microsoft::WRL::ComPtr<IDWriteTextLayout3>      m_textLayout;
 		Microsoft::WRL::ComPtr<IDWriteTextFormat2>      m_textFormat;
+		GameMessageSystem* m_messageSystem;
+		long m_subscriptionId;
+		bool m_isObjectSelected = true;
 	};
 }
