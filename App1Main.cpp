@@ -23,7 +23,7 @@ App1Main::App1Main(const std::shared_ptr<DX::DeviceResources>& deviceResources) 
 	m_sceneRenderer->SetMessageSystem(m_messageSystem.get());
 
 	m_fpsTextRenderer = std::unique_ptr<SampleFpsTextRenderer>(new SampleFpsTextRenderer(m_deviceResources));
-
+	m_fpsTextRenderer->SetMessageSystem(m_messageSystem.get());
 
 	// e.g. for 60 FPS fixed timestep update logic, call:
 	/*
