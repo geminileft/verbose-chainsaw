@@ -29,7 +29,7 @@ SceneMetadata SceneMetadata::getJsonScene(Platform::String^ jsonFilename)
 {
     JsonObject^ data = FileUtils::loadJsonFile(jsonFilename);
     Platform::String^ objFilename = data->GetNamedString("obj_filename");
-    Platform::String^ mtlFilename = data->GetNamedString("mtl_filename");
+    Platform::String^ mtlFilename = data->GetNamedString("mtl_filename", nullptr);
     JsonArray^ eyeLocationData = data->GetNamedArray("eye_location");
     DirectX::XMVECTOR eyeLocation = {
         (float)eyeLocationData->GetNumberAt(0),
