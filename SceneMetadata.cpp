@@ -4,7 +4,7 @@
 
 SceneMetadata::SceneMetadata(Platform::String^ objFilename, Platform::String^ mtlFilename,
     DirectX::XMFLOAT4 eyeLocation, DirectX::XMVECTOR atLocation,
-    DirectX::XMVECTOR upVector, DirectX::XMVECTOR lightDirection)
+    DirectX::XMVECTOR upVector, DirectX::XMVECTOR lightDirection, bool calculateNormals)
 {
     m_objFilename = objFilename;
     m_mtlFilename = mtlFilename;
@@ -13,6 +13,7 @@ SceneMetadata::SceneMetadata(Platform::String^ objFilename, Platform::String^ mt
     m_atLocation = atLocation;
     m_upVector = upVector;
     m_lightDirection = lightDirection;
+    m_calculateNormals = calculateNormals;
 }
 
 SceneMetadata SceneMetadata::getTestScene()
@@ -22,7 +23,8 @@ SceneMetadata SceneMetadata::getTestScene()
         { 0.0f, 0.0f, 5.0f, 0.0f },
         { 0.0f, 0.0f, 0.0f, 0.0f },
         { 0.0f, 1.0f, 0.0f, 0.0f },
-        { 0.0f, 0.0f, 1.0f, 1.0f });
+        { 0.0f, 0.0f, 1.0f, 1.0f },
+        false);
     return metadata;
 }
 
@@ -60,8 +62,9 @@ SceneMetadata SceneMetadata::getJsonScene(Platform::String^ jsonFilename)
         (float)lightDirectionData->GetNumberAt(3)
     };
 
+    bool calculateNormals = data->GetNamedBoolean("calculate_normals", false);
     SceneMetadata metadata(objFilename, mtlFilename,
-        eyeLocation, atLocation, upDirection, lightDirection);
+        eyeLocation, atLocation, upDirection, lightDirection, calculateNormals);
     return metadata;
 }
 
@@ -111,4 +114,9 @@ void SceneMetadata::setEyeLocationData(DirectX::XMFLOAT4 eyeLocationData)
 DirectX::XMFLOAT4 SceneMetadata::getEyeLocationData()
 {
     return m_eyeLocationData;
+}
+
+bool SceneMetadata::getCalculateNormals()
+{
+    return m_calculateNormals;
 }
