@@ -23,6 +23,44 @@ float blendLinear2RGB(float v)
 	}
 }
 
+float calculateVectorLength(Float3 v)
+{
+	// | a | = sqrt((ax * ax) + (ay * ay) + (az * az))
+	return (float)sqrt((v.x * v.x) + (v.y * v.y) + (v.z * v.z));
+
+}
+Float3 calculateNormal(Float3 p1, Float3 p2, Float3 p3)
+{
+	// TODO : HANDLE NO NORMAL DATA
+	DirectX::XMFLOAT3 u;
+	DirectX::XMFLOAT3 v;
+
+	u.x = p2.x - p1.x;
+	u.y = p2.y - p1.y;
+	u.z = p2.z - p1.z;
+
+	v.x = p3.x - p1.x;
+	v.y = p3.y - p1.y;
+	v.z = p3.z - p1.z;
+
+	Float3 n;
+	n.x = (u.y * v.z) - (u.z * v.y);
+	n.y = (u.z * v.x) - (u.x * v.z);
+	n.z = (u.x * v.y) - (u.y * v.x);
+
+	float l = calculateVectorLength(n);
+	n.x = n.x / l;
+	n.y = n.y / l;
+	n.z = n.z / l;
+	return n;
+
+
+// p1, p2, p3, if the vector U = p2 - p1 and the vector V = p3 - p1
+// Nx = UyVz - UzVy
+// Ny = UzVx - UxVz
+// Nz = UxVy - UyVx
+
+}
 // Loads vertex and pixel shaders from files and instantiates the cube geometry.
 Sample3DSceneRenderer::Sample3DSceneRenderer(const std::shared_ptr<DX::DeviceResources>& deviceResources) :
 	m_loadingComplete(false),
@@ -448,7 +486,7 @@ void App1::Sample3DSceneRenderer::CreateNonIndexedCubeMesh()
 	{
 		allMaterial = objReader.readMaterial(mtlFilename);
 	}
-	vector<VertexPositionColor> meshData = CreateMeshFromObjData(objData, allMaterial);
+	vector<VertexPositionColor> meshData = CreateMeshFromObjData(objData, allMaterial, m_sceneMetadata.getCalculateNormals());
 	VertexPositionColor* meshArr = new VertexPositionColor[meshData.size()];
 	for (int i = 0; i < meshData.size(); ++i)
 	{
@@ -521,7 +559,7 @@ void App1::Sample3DSceneRenderer::CreateNonIndexedCubeMesh()
 	m_vertexCount = meshData.size();
 }
 
-vector<VertexPositionColor> App1::Sample3DSceneRenderer::CreateMeshFromObjData(ObjData data, std::map<std::string, MaterialData> matData)
+vector<VertexPositionColor> App1::Sample3DSceneRenderer::CreateMeshFromObjData(ObjData data, std::map<std::string, MaterialData> matData, bool calculateNormals)
 {
 	vector<VertexPositionColor> vertices;
 
@@ -546,8 +584,13 @@ vector<VertexPositionColor> App1::Sample3DSceneRenderer::CreateMeshFromObjData(O
 		Int3 vIndices0 = face[0];
 		Float3 position0 = data.verticesList[vIndices0.x - 1];
 		// TODO : HANDLE NO NORMAL DATA
+		// p1, p2, p3, if the vector U = p2 - p1 and the vector V = p3 - p1
+		// Nx = UyVz - UzVy
+		// Ny = UzVx - UxVz
+		// Nz = UxVy - UyVx
+
 		Float3 normal0 = { 0.0f, 0.0f, 0.0f };
-		if (vIndices0.z >= 0)
+		if (vIndices0.z > 0)
 		{
 			normal0 = data.normalsList[vIndices0.z - 1];
 		}
@@ -556,16 +599,23 @@ vector<VertexPositionColor> App1::Sample3DSceneRenderer::CreateMeshFromObjData(O
 			Int3 vIndices1 = face[i];
 			Float3 position1 = data.verticesList[vIndices1.x - 1];
 			Float3 normal1 = { 0.0f, 0.0f, 0.0f };
-			if (vIndices1.z >= 0)
+			if (vIndices1.z > 0)
 			{
 				normal1 = data.normalsList[vIndices1.z - 1];
 			}
 			Int3 vIndices2 = face[i + 1];
 			Float3 position2 = data.verticesList[vIndices2.x - 1];
 			Float3 normal2 = { 0.0f, 0.0f, 0.0f };
-			if (vIndices2.z >= 0)
+			if (vIndices2.z > 0)
 			{
 				normal2 = data.normalsList[vIndices2.z - 1];
+			}
+			if (calculateNormals)
+			{
+				Float3 normal = calculateNormal(position0, position1, position2);
+				normal0 = normal;
+				normal1 = normal;
+				normal2 = normal;
 			}
 			vertices.push_back({
 				XMFLOAT3(position0.x, position0.y, position0.z),
