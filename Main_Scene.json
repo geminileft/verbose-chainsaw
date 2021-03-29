@@ -1,6 +1,5 @@
 {
-  "obj_filename": "Resource\\Wavefront\\cactus_tall.obj",
-  "mtl_filename": "Resource\\Wavefront\\cactus_tall.mtl",
+  "obj_filename": "Resource\\Arbre_Automne_Cylinder.003.obj",
   "eye_location": [ 0.0, 0.0, 5.0, 0.0 ],
   "at_location": [ 0.0, 0.0, 0.0, 0.0 ],
   "up_direction": [ 0.0, 1.0, 0.0, 0.0 ],

@@ -2134,4 +2134,9 @@
       <Filter>Resource\SceneJson</Filter>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="Resource\Arbre_Automne_Cylinder.003.obj">
+      <Filter>Resource</Filter>
+    </Text>
+  </ItemGroup>
 </Project>

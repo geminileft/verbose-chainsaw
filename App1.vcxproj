@@ -991,6 +991,12 @@
       <FileType>Text</FileType>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="Resource\Arbre_Automne_Cylinder.003.obj">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Text</FileType>
+    </Text>
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
     <Import Project="$(VSINSTALLDIR)\Common7\IDE\Extensions\Microsoft\VsGraphics\ImageContentTask.targets" />
