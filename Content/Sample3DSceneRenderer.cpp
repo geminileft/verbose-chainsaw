@@ -526,7 +526,7 @@ vector<VertexPositionColor> App1::Sample3DSceneRenderer::CreateMeshFromObjData(O
 		Float3 normal0 = { 0.0f, 0.0f, 0.0f };
 		if (vIndices0.z >= 0)
 		{
-			Float3 normal0 = data.normalsList[vIndices0.z - 1];
+			normal0 = data.normalsList[vIndices0.z - 1];
 		}
 		for (int i = 1; i < face.size() - 1; ++i)
 		{
