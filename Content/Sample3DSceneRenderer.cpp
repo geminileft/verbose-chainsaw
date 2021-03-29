@@ -420,7 +420,11 @@ void App1::Sample3DSceneRenderer::CreateNonIndexedCubeMesh()
 	Platform::String^ mtlFilename = m_sceneMetadata.getMtlFilename();
 	ObjReader objReader;
 	ObjData objData = objReader.readObject(filename);
-	std::map<std::string, MaterialData> allMaterial = objReader.readMaterial(mtlFilename);
+	std::map<std::string, MaterialData> allMaterial;
+	if (mtlFilename != nullptr)
+	{
+		allMaterial = objReader.readMaterial(mtlFilename);
+	}
 	vector<VertexPositionColor> meshData = CreateMeshFromObjData(objData, allMaterial);
 	VertexPositionColor* meshArr = new VertexPositionColor[meshData.size()];
 	for (int i = 0; i < meshData.size(); ++i)
@@ -508,10 +512,13 @@ vector<VertexPositionColor> App1::Sample3DSceneRenderer::CreateMeshFromObjData(O
 		if (idxMat != data.mtlSwitch.end())
 		{
 			auto matVal = idxMat->second;
-			auto useMatData = matData[matVal];
-			triColor = XMFLOAT3(blendLinear2RGB(useMatData.kd.x),
-				blendLinear2RGB(useMatData.kd.y),
-				blendLinear2RGB(useMatData.kd.z));
+			if (matData.find(matVal) != matData.end())
+			{
+				auto useMatData = matData[matVal];
+				triColor = XMFLOAT3(blendLinear2RGB(useMatData.kd.x),
+					blendLinear2RGB(useMatData.kd.y),
+					blendLinear2RGB(useMatData.kd.z));
+			}
 		}
 		Int3 vIndices0 = face[0];
 		Float3 position0 = data.verticesList[vIndices0.x - 1];
