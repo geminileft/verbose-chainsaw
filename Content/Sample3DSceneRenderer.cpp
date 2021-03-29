@@ -149,11 +149,14 @@ void Sample3DSceneRenderer::CreateWindowSizeDependentResources()
 		&m_constantBufferData.projection,
 		XMMatrixTranspose(perspectiveMatrix * orientationMatrix)
 		);
+
+	/*
 	static const XMVECTOR eye = m_sceneMetadata.getEyeLocation();
 	static const XMVECTOR at = m_sceneMetadata.getAtLocation();
 	static const XMVECTOR up = m_sceneMetadata.getUpVector();
 
 	XMStoreFloat4x4(&m_constantBufferData.view, XMMatrixTranspose(XMMatrixLookAtRH(eye, at, up)));
+	*/
 
 	static const XMVECTOR lightDirection = m_sceneMetadata.getLightDirection();
 	XMStoreFloat4(&m_constantBufferData.lightDirection, lightDirection);
@@ -192,12 +195,26 @@ void Sample3DSceneRenderer::Update(DX::StepTimer const& timer)
 					m_degreesPerSecond = -45;
 					m_objectRotation.x = (float)fmod(m_objectRotation.x - degreeIncrement, XM_2PI);
 				}
+				else
+				{
+					DirectX::XMFLOAT4 eyeLocationData = m_sceneMetadata.getEyeLocationData();
+					eyeLocationData.z -= 0.1f;
+					m_sceneMetadata.setEyeLocationData(eyeLocationData);
+					
+				}
 			}
 			else if (nextMessage.mType == GameMessageType::DirectionDown) {
 				if (m_isObjectSelected)
 				{
 					m_degreesPerSecond = -45;
 					m_objectRotation.x = (float)fmod(m_objectRotation.x + degreeIncrement, XM_2PI);
+				}
+				else
+				{
+					DirectX::XMFLOAT4 eyeLocationData = m_sceneMetadata.getEyeLocationData();
+					eyeLocationData.z += 0.1f;
+					m_sceneMetadata.setEyeLocationData(eyeLocationData);
+
 				}
 			}
 			else if (nextMessage.mType == GameMessageType::GameSwitchInputControl)
@@ -270,6 +287,12 @@ void Sample3DSceneRenderer::Render()
 	}
 
 	auto context = m_deviceResources->GetD3DDeviceContext();
+
+	XMVECTOR eye = m_sceneMetadata.getEyeLocation();
+	XMVECTOR at = m_sceneMetadata.getAtLocation();
+	XMVECTOR up = m_sceneMetadata.getUpVector();
+
+	XMStoreFloat4x4(&m_constantBufferData.view, XMMatrixTranspose(XMMatrixLookAtRH(eye, at, up)));
 
 	// Prepare the constant buffer to send it to the graphics device.
 	context->UpdateSubresource1(
