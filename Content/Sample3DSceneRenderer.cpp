@@ -524,7 +524,7 @@ vector<VertexPositionColor> App1::Sample3DSceneRenderer::CreateMeshFromObjData(O
 		Float3 position0 = data.verticesList[vIndices0.x - 1];
 		// TODO : HANDLE NO NORMAL DATA
 		Float3 normal0 = { 0.0f, 0.0f, 0.0f };
-		if (vIndices0.z > 0)
+		if (vIndices0.z >= 0)
 		{
 			Float3 normal0 = data.normalsList[vIndices0.z - 1];
 		}
@@ -533,14 +533,14 @@ vector<VertexPositionColor> App1::Sample3DSceneRenderer::CreateMeshFromObjData(O
 			Int3 vIndices1 = face[i];
 			Float3 position1 = data.verticesList[vIndices1.x - 1];
 			Float3 normal1 = { 0.0f, 0.0f, 0.0f };
-			if (vIndices1.z > 0)
+			if (vIndices1.z >= 0)
 			{
 				normal1 = data.normalsList[vIndices1.z - 1];
 			}
 			Int3 vIndices2 = face[i + 1];
 			Float3 position2 = data.verticesList[vIndices2.x - 1];
 			Float3 normal2 = { 0.0f, 0.0f, 0.0f };
-			if (vIndices2.z > 0)
+			if (vIndices2.z >= 0)
 			{
 				normal2 = data.normalsList[vIndices2.z - 1];
 			}
