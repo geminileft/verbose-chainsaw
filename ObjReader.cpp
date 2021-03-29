@@ -58,7 +58,15 @@ ObjData ObjReader::readObject(Platform::String^ objFilePath)
 			for (int i = 1; i < splitVals.size(); ++i)
 			{
 				auto group = splitString(splitVals[i], "/");
-				if (group.size() == 3)
+				if (group.size() == 1)
+				{
+					Int3 faceVertexIndices;
+					faceVertexIndices.x = stoi(group[0]);
+					faceVertexIndices.y = -1;
+					faceVertexIndices.z = -1;
+					faceVerticesData.push_back(faceVertexIndices);
+				}
+				else if (group.size() == 3)
 				{
 					Int3 faceVertexIndices;
 					faceVertexIndices.x = stoi(group[0]);
