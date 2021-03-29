@@ -259,6 +259,20 @@ void Sample3DSceneRenderer::Update(DX::StepTimer const& timer)
 			{
 				m_isObjectSelected = !m_isObjectSelected;
 			}
+			else if (nextMessage.mType == GameMessageType::ControlsStrafeLeft)
+			{
+				if (!m_isObjectSelected)
+				{
+					auto strafeLeft = true;
+				}
+			}
+			else if (nextMessage.mType == GameMessageType::ControlsStrafeRight)
+			{
+				if (!m_isObjectSelected)
+				{
+					auto strafeRight = true;
+				}
+			}
 			messages.pop();
 		}
 
@@ -312,6 +326,8 @@ void Sample3DSceneRenderer::SetMessageSystem(GameMessageSystem* messageSystem)
 	messageFilters.insert(GameMessageType::DirectionUp);
 	messageFilters.insert(GameMessageType::DirectionDown);
 	messageFilters.insert(GameMessageType::GameSwitchInputControl);
+	messageFilters.insert(GameMessageType::ControlsStrafeLeft);
+	messageFilters.insert(GameMessageType::ControlsStrafeRight);
 	m_subscriptionId = m_messageSystem->CreateSubscription(messageFilters);
 }
 

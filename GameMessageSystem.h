@@ -14,6 +14,8 @@ enum class GameMessageType
 	, DirectionLeft
 	, ActionStop
 	, GameSwitchInputControl
+	, ControlsStrafeLeft
+	, ControlsStrafeRight
 };
 
 struct GameMessageInfo
