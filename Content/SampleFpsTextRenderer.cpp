@@ -68,7 +68,7 @@ void SampleFpsTextRenderer::Update(DX::StepTimer const& timer)
 			}
 			else
 			{
-				m_inputControlText = L"None";
+				m_inputControlText = L"Camera";
 			}
 		}
 		messages.pop();
