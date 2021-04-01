@@ -102,6 +102,18 @@ void GameInputManager::Update(DX::StepTimer const& timer)
                 info.mType = GameMessageType::ControlsStrafeRight;
                 m_messageSystem->Broadcast(info);
             }
+            else if (event.value == "<W>")
+            {
+                GameMessageInfo info;
+                info.mType = GameMessageType::ControlsCircleUp;
+                m_messageSystem->Broadcast(info);
+            }
+            else if (event.value == "<S>")
+            {
+                GameMessageInfo info;
+                info.mType = GameMessageType::ControlsCircleDown;
+                m_messageSystem->Broadcast(info);
+            }
         }
         m_inputQueue.pop();
     }
@@ -176,6 +188,12 @@ void GameInputManager::PlatformInputForwarder::OnKeyDown(CoreWindow^ sender, Key
         break;
     case VirtualKey::D:
         keyValue = "<D>";
+        break;
+    case VirtualKey::W:
+        keyValue = "<W>";
+        break;
+    case VirtualKey::S:
+        keyValue = "<S>";
         break;
     }
 
