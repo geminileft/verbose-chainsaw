@@ -9,7 +9,7 @@ using namespace Microsoft::WRL;
 // Initializes D2D resources used for text rendering.
 SampleFpsTextRenderer::SampleFpsTextRenderer(const std::shared_ptr<DX::DeviceResources>& deviceResources) : 
 	m_text(L""),
-	m_inputControlText(L"Object"),
+	m_inputControlText(L"Camera"),
 	m_deviceResources(deviceResources)
 {
 	ZeroMemory(&m_textMetrics, sizeof(DWRITE_TEXT_METRICS));

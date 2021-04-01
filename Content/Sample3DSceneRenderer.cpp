@@ -29,6 +29,7 @@ float calculateVectorLength(Float3 v)
 	return (float)sqrt((v.x * v.x) + (v.y * v.y) + (v.z * v.z));
 
 }
+
 Float3 calculateNormal(Float3 p1, Float3 p2, Float3 p3)
 {
 	// TODO : HANDLE NO NORMAL DATA
@@ -53,14 +54,8 @@ Float3 calculateNormal(Float3 p1, Float3 p2, Float3 p3)
 	n.y = n.y / l;
 	n.z = n.z / l;
 	return n;
-
-
-// p1, p2, p3, if the vector U = p2 - p1 and the vector V = p3 - p1
-// Nx = UyVz - UzVy
-// Ny = UzVx - UxVz
-// Nz = UxVy - UyVx
-
 }
+
 // Loads vertex and pixel shaders from files and instantiates the cube geometry.
 Sample3DSceneRenderer::Sample3DSceneRenderer(const std::shared_ptr<DX::DeviceResources>& deviceResources) :
 	m_loadingComplete(false),
@@ -259,6 +254,62 @@ void Sample3DSceneRenderer::Update(DX::StepTimer const& timer)
 			{
 				m_isObjectSelected = !m_isObjectSelected;
 			}
+			else if (nextMessage.mType == GameMessageType::ControlsStrafeLeft)
+			{
+				if (!m_isObjectSelected)
+				{
+					DirectX::XMFLOAT4 atLocation = m_sceneMetadata.getAtLocationData();
+					XMMATRIX rotateMatrix = XMMatrixRotationY(-.1f);
+					XMFLOAT4 oldEyeLocationData = m_sceneMetadata.getEyeLocationData();
+					XMVECTOR eyeLocation = XMLoadFloat4(&oldEyeLocationData);
+					XMVECTOR newEyeLocation = XMVector4Transform(eyeLocation, rotateMatrix);
+					DirectX::XMFLOAT4 newEyeLocationData;
+					XMStoreFloat4(&newEyeLocationData, newEyeLocation);
+					m_sceneMetadata.setEyeLocationData(newEyeLocationData);
+				}
+			}
+			else if (nextMessage.mType == GameMessageType::ControlsStrafeRight)
+			{
+				if (!m_isObjectSelected)
+				{
+					DirectX::XMFLOAT4 atLocation = m_sceneMetadata.getAtLocationData();
+					XMMATRIX rotateMatrix = XMMatrixRotationY(.1f);
+					XMFLOAT4 oldEyeLocationData = m_sceneMetadata.getEyeLocationData();
+					XMVECTOR eyeLocation = XMLoadFloat4(&oldEyeLocationData);
+					XMVECTOR newEyeLocation = XMVector4Transform(eyeLocation, rotateMatrix);
+					DirectX::XMFLOAT4 newEyeLocationData;
+					XMStoreFloat4(&newEyeLocationData, newEyeLocation);
+					m_sceneMetadata.setEyeLocationData(newEyeLocationData);
+				}
+			}
+			else if (nextMessage.mType == GameMessageType::ControlsCircleUp)
+			{
+				if (!m_isObjectSelected)
+				{
+					DirectX::XMFLOAT4 atLocation = m_sceneMetadata.getAtLocationData();
+					XMMATRIX rotateMatrix = XMMatrixRotationX(-.1f);
+					XMFLOAT4 oldEyeLocationData = m_sceneMetadata.getEyeLocationData();
+					XMVECTOR eyeLocation = XMLoadFloat4(&oldEyeLocationData);
+					XMVECTOR newEyeLocation = XMVector4Transform(eyeLocation, rotateMatrix);
+					DirectX::XMFLOAT4 newEyeLocationData;
+					XMStoreFloat4(&newEyeLocationData, newEyeLocation);
+					m_sceneMetadata.setEyeLocationData(newEyeLocationData);
+				}
+			}
+			else if (nextMessage.mType == GameMessageType::ControlsCircleDown)
+			{
+				if (!m_isObjectSelected)
+				{
+					DirectX::XMFLOAT4 atLocation = m_sceneMetadata.getAtLocationData();
+					XMMATRIX rotateMatrix = XMMatrixRotationX(.1f);
+					XMFLOAT4 oldEyeLocationData = m_sceneMetadata.getEyeLocationData();
+					XMVECTOR eyeLocation = XMLoadFloat4(&oldEyeLocationData);
+					XMVECTOR newEyeLocation = XMVector4Transform(eyeLocation, rotateMatrix);
+					DirectX::XMFLOAT4 newEyeLocationData;
+					XMStoreFloat4(&newEyeLocationData, newEyeLocation);
+					m_sceneMetadata.setEyeLocationData(newEyeLocationData);
+				}
+			}
 			messages.pop();
 		}
 
@@ -312,6 +363,10 @@ void Sample3DSceneRenderer::SetMessageSystem(GameMessageSystem* messageSystem)
 	messageFilters.insert(GameMessageType::DirectionUp);
 	messageFilters.insert(GameMessageType::DirectionDown);
 	messageFilters.insert(GameMessageType::GameSwitchInputControl);
+	messageFilters.insert(GameMessageType::ControlsStrafeLeft);
+	messageFilters.insert(GameMessageType::ControlsStrafeRight);
+	messageFilters.insert(GameMessageType::ControlsCircleUp);
+	messageFilters.insert(GameMessageType::ControlsCircleDown);
 	m_subscriptionId = m_messageSystem->CreateSubscription(messageFilters);
 }
 

@@ -38,6 +38,6 @@ namespace App1
 
 		GameMessageSystem* m_messageSystem;
 		long m_subscriptionId;
-		bool m_isObjectSelected = true;
+		bool m_isObjectSelected = false;
 	};
 }

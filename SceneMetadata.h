@@ -6,7 +6,7 @@ private:
 	Platform::String^ m_mtlFilename;
 
 	DirectX::XMFLOAT4 m_eyeLocationData;
-	DirectX::XMVECTOR m_atLocation;
+	DirectX::XMFLOAT4 m_atLocation;
 	DirectX::XMVECTOR m_upVector;
 	DirectX::XMVECTOR m_lightDirection;
 
@@ -14,7 +14,7 @@ private:
 
 public:
 	SceneMetadata(Platform::String^ objFilename, Platform::String^ mtlFilename,
-		DirectX::XMFLOAT4 eyeLocation, DirectX::XMVECTOR atLocation,
+		DirectX::XMFLOAT4 eyeLocation, DirectX::XMFLOAT4 atLocation,
 		DirectX::XMVECTOR upVector, DirectX::XMVECTOR lightDirection, bool calculateNormals);
 
 	static SceneMetadata getTestScene();
@@ -28,6 +28,7 @@ public:
 
 	void setEyeLocationData(DirectX::XMFLOAT4 eyeLocationData);
 	DirectX::XMFLOAT4 getEyeLocationData();
+	DirectX::XMFLOAT4 getAtLocationData();
 
 	bool getCalculateNormals();
 };

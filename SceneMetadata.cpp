@@ -3,7 +3,7 @@
 #include "FileUtils.h"
 
 SceneMetadata::SceneMetadata(Platform::String^ objFilename, Platform::String^ mtlFilename,
-    DirectX::XMFLOAT4 eyeLocation, DirectX::XMVECTOR atLocation,
+    DirectX::XMFLOAT4 eyeLocation, DirectX::XMFLOAT4 atLocation,
     DirectX::XMVECTOR upVector, DirectX::XMVECTOR lightDirection, bool calculateNormals)
 {
     m_objFilename = objFilename;
@@ -41,7 +41,7 @@ SceneMetadata SceneMetadata::getJsonScene(Platform::String^ jsonFilename)
         (float)eyeLocationData->GetNumberAt(3)
     };
     JsonArray^ atLocationData = data->GetNamedArray("at_location");
-    DirectX::XMVECTOR atLocation = {
+    DirectX::XMFLOAT4 atLocation = {
         (float)atLocationData->GetNumberAt(0),
         (float)atLocationData->GetNumberAt(1),
         (float)atLocationData->GetNumberAt(2),
@@ -93,7 +93,12 @@ DirectX::XMVECTOR SceneMetadata::getEyeLocation()
 
 DirectX::XMVECTOR SceneMetadata::getAtLocation()
 {
-    return m_atLocation;
+    return DirectX::XMVECTOR({
+        m_atLocation.x,
+        m_atLocation.y,
+        m_atLocation.z,
+        m_atLocation.w
+        });
 }
 
 DirectX::XMVECTOR SceneMetadata::getUpVector()
@@ -114,6 +119,11 @@ void SceneMetadata::setEyeLocationData(DirectX::XMFLOAT4 eyeLocationData)
 DirectX::XMFLOAT4 SceneMetadata::getEyeLocationData()
 {
     return m_eyeLocationData;
+}
+
+DirectX::XMFLOAT4 SceneMetadata::getAtLocationData()
+{
+    return m_atLocation;
 }
 
 bool SceneMetadata::getCalculateNormals()
