@@ -4,7 +4,6 @@
 #include "..\Common\DirectXHelper.h"
 #include "ObjReader.h"
 #include "FileUtils.h"
-#include "math.h"
 
 using namespace App1;
 
@@ -55,35 +54,6 @@ Float3 calculateNormal(Float3 p1, Float3 p2, Float3 p3)
 	n.y = n.y / l;
 	n.z = n.z / l;
 	return n;
-}
-
-Float3 calculateSphereInfo(Float3 outsidePoint, Float3 centerPoint)
-{
-	float dx = outsidePoint.x - centerPoint.x;
-	float dy = outsidePoint.y - centerPoint.y;
-	float dz = outsidePoint.z - centerPoint.z;
-
-	double radial = sqrt((dx * dx) + (dy * dy) + (dz * dz));
-	double omega = atan2(dy, dx);
-	double theta = atan2(sqrt((dx * dx) + (dy * dy)), dz);
-	double theta2 = acos(dz / radial);
-	// r = sqrt(x ^ 2 + y ^ 2 + z ^ 2)
-	// o = atan2(y / x)
-	// t = acos(z / r)
-	Float3 f = { radial, omega, theta };
-	return f;
-}
-
-Float3 convertSphericalCoordsToCartesian(Float3 sphericalCoords)
-{
-	Float3 val;
-	val.x = sphericalCoords.x * sin(sphericalCoords.z) * cos(sphericalCoords.y);
-	val.y = sphericalCoords.x * sin(sphericalCoords.z) * sin(sphericalCoords.y);
-	val.z = sphericalCoords.x * cos(sphericalCoords.z);
-	return val;
-	// x = r * sin(t) * cos(o)
-	// y = r * sin(t) * sin(o)
-	// z = r * cos(t)
 }
 
 // Loads vertex and pixel shaders from files and instantiates the cube geometry.
