@@ -54,13 +54,26 @@ SceneMetadata SceneMetadata::getJsonScene(Platform::String^ jsonFilename)
         (float)upDirectionData->GetNumberAt(2),
         (float)upDirectionData->GetNumberAt(3)
     };
-    JsonArray^ lightDirectionData = data->GetNamedArray("light_direction");
-    DirectX::XMVECTOR lightDirection = {
-        (float)lightDirectionData->GetNumberAt(0),
-        (float)lightDirectionData->GetNumberAt(1),
-        (float)lightDirectionData->GetNumberAt(2),
-        (float)lightDirectionData->GetNumberAt(3)
-    };
+    DirectX::XMVECTOR lightDirection;
+
+    // TODO: LIGHT DIRECTION UPDATE
+    JsonArray^ lightDirectionData = data->GetNamedArray("light_direction", nullptr);
+    if (lightDirectionData != nullptr)
+    {
+        lightDirection = {
+            (float)lightDirectionData->GetNumberAt(0),
+            (float)lightDirectionData->GetNumberAt(1),
+            (float)lightDirectionData->GetNumberAt(2),
+            (float)lightDirectionData->GetNumberAt(3)
+        };
+    }
+    else
+    {
+        DirectX::XMVECTOR a = DirectX::XMLoadFloat4(&eyeLocation);
+        DirectX::XMVECTOR b = DirectX::XMLoadFloat4(&atLocation);
+        auto abSub = DirectX::XMVectorSubtract(a, b);
+        lightDirection = DirectX::XMVector4Normalize(abSub);
+    }
 
     bool calculateNormals = data->GetNamedBoolean("calculate_normals", false);
     SceneMetadata metadata(objFilename, mtlFilename,
