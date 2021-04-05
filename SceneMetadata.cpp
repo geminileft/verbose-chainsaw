@@ -1,6 +1,13 @@
 #include "pch.h"
 #include "SceneMetadata.h"
 #include "FileUtils.h"
+#include "MathHelpers.h"
+
+float calculateVectorLength(DirectX::XMFLOAT4 v)
+{
+    // | a | = sqrt((ax * ax) + (ay * ay) + (az * az))
+    return (float)sqrt((v.x * v.x) + (v.y * v.y) + (v.z * v.z));
+}
 
 SceneMetadata::SceneMetadata(Platform::String^ objFilename, Platform::String^ mtlFilename,
     DirectX::XMFLOAT4 eyeLocation, DirectX::XMFLOAT4 atLocation,
@@ -47,16 +54,39 @@ SceneMetadata SceneMetadata::getJsonScene(Platform::String^ jsonFilename)
         (float)atLocationData->GetNumberAt(2),
         (float)atLocationData->GetNumberAt(3)
     };
-    JsonArray^ upDirectionData = data->GetNamedArray("up_direction");
-    DirectX::XMVECTOR upDirection = {
-        (float)upDirectionData->GetNumberAt(0),
-        (float)upDirectionData->GetNumberAt(1),
-        (float)upDirectionData->GetNumberAt(2),
-        (float)upDirectionData->GetNumberAt(3)
-    };
-    DirectX::XMVECTOR lightDirection;
 
-    // TODO: LIGHT DIRECTION UPDATE
+    DirectX::XMVECTOR upDirection;
+    JsonArray^ upDirectionData = data->GetNamedArray("up_direction", nullptr);
+    if (upDirectionData != nullptr)
+    {
+        upDirection = {
+            (float)upDirectionData->GetNumberAt(0),
+            (float)upDirectionData->GetNumberAt(1),
+            (float)upDirectionData->GetNumberAt(2),
+            (float)upDirectionData->GetNumberAt(3)
+        };
+    }
+    else
+    {
+        DirectX::XMVECTOR a = DirectX::XMLoadFloat4(&eyeLocation);
+        DirectX::XMVECTOR b = DirectX::XMLoadFloat4(&atLocation);
+        auto abSub = DirectX::XMVectorSubtract(a, b);
+        DirectX::XMFLOAT4 ab;
+        XMStoreFloat4(&ab, abSub);
+
+        // calculatePointRotate
+        DirectX::XMMATRIX rotateMatrix = DirectX::XMMatrixRotationX(-DirectX::XM_PIDIV2);
+        auto x = calculatePointRotate(rotateMatrix, ab);
+
+        auto l = calculateVectorLength(x);
+        upDirection = {
+            x.x / l,
+            x.y / l,
+            x.z / l,
+            0
+        };
+    }
+    DirectX::XMVECTOR lightDirection;
     JsonArray^ lightDirectionData = data->GetNamedArray("light_direction", nullptr);
     if (lightDirectionData != nullptr)
     {

@@ -4,6 +4,7 @@
 #include "..\Common\DirectXHelper.h"
 #include "ObjReader.h"
 #include "FileUtils.h"
+#include "MathHelpers.h"
 
 using namespace App1;
 
@@ -289,10 +290,7 @@ void Sample3DSceneRenderer::Update(DX::StepTimer const& timer)
 					DirectX::XMFLOAT4 atLocation = m_sceneMetadata.getAtLocationData();
 					XMMATRIX rotateMatrix = XMMatrixRotationX(-.1f);
 					XMFLOAT4 oldEyeLocationData = m_sceneMetadata.getEyeLocationData();
-					XMVECTOR eyeLocation = XMLoadFloat4(&oldEyeLocationData);
-					XMVECTOR newEyeLocation = XMVector4Transform(eyeLocation, rotateMatrix);
-					DirectX::XMFLOAT4 newEyeLocationData;
-					XMStoreFloat4(&newEyeLocationData, newEyeLocation);
+					DirectX::XMFLOAT4 newEyeLocationData = calculatePointRotate(rotateMatrix, oldEyeLocationData);
 					m_sceneMetadata.setEyeLocationData(newEyeLocationData);
 				}
 			}
@@ -303,10 +301,7 @@ void Sample3DSceneRenderer::Update(DX::StepTimer const& timer)
 					DirectX::XMFLOAT4 atLocation = m_sceneMetadata.getAtLocationData();
 					XMMATRIX rotateMatrix = XMMatrixRotationX(.1f);
 					XMFLOAT4 oldEyeLocationData = m_sceneMetadata.getEyeLocationData();
-					XMVECTOR eyeLocation = XMLoadFloat4(&oldEyeLocationData);
-					XMVECTOR newEyeLocation = XMVector4Transform(eyeLocation, rotateMatrix);
-					DirectX::XMFLOAT4 newEyeLocationData;
-					XMStoreFloat4(&newEyeLocationData, newEyeLocation);
+					DirectX::XMFLOAT4 newEyeLocationData = calculatePointRotate(rotateMatrix, oldEyeLocationData);
 					m_sceneMetadata.setEyeLocationData(newEyeLocationData);
 				}
 			}
