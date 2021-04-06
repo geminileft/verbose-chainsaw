@@ -3,12 +3,6 @@
 #include "FileUtils.h"
 #include "MathHelpers.h"
 
-float calculateVectorLength(DirectX::XMFLOAT4 v)
-{
-    // | a | = sqrt((ax * ax) + (ay * ay) + (az * az))
-    return (float)sqrt((v.x * v.x) + (v.y * v.y) + (v.z * v.z));
-}
-
 SceneMetadata::SceneMetadata(Platform::String^ objFilename, Platform::String^ mtlFilename,
     DirectX::XMFLOAT4 eyeLocation, DirectX::XMFLOAT4 atLocation,
     DirectX::XMVECTOR upVector, DirectX::XMVECTOR lightDirection, bool calculateNormals)
@@ -68,23 +62,7 @@ SceneMetadata SceneMetadata::getJsonScene(Platform::String^ jsonFilename)
     }
     else
     {
-        DirectX::XMVECTOR a = DirectX::XMLoadFloat4(&eyeLocation);
-        DirectX::XMVECTOR b = DirectX::XMLoadFloat4(&atLocation);
-        auto abSub = DirectX::XMVectorSubtract(a, b);
-        DirectX::XMFLOAT4 ab;
-        XMStoreFloat4(&ab, abSub);
-
-        // calculatePointRotate
-        DirectX::XMMATRIX rotateMatrix = DirectX::XMMatrixRotationX(-DirectX::XM_PIDIV2);
-        auto x = calculatePointRotate(rotateMatrix, ab);
-
-        auto l = calculateVectorLength(x);
-        upDirection = {
-            x.x / l,
-            x.y / l,
-            x.z / l,
-            0
-        };
+        upDirection = calculateUpDirection(eyeLocation, atLocation);
     }
     DirectX::XMVECTOR lightDirection;
     JsonArray^ lightDirectionData = data->GetNamedArray("light_direction", nullptr);
