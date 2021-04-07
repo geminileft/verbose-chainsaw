@@ -231,10 +231,14 @@ void Sample3DSceneRenderer::Update(DX::StepTimer const& timer)
 				}
 				else
 				{
-					DirectX::XMFLOAT4 eyeLocationData = m_sceneMetadata.getEyeLocationData();
-					eyeLocationData.z -= 0.1f;
-					m_sceneMetadata.setEyeLocationData(eyeLocationData);
-					
+					DirectX::XMFLOAT4 atLocation = m_sceneMetadata.getAtLocationData();
+					XMFLOAT4 oldEyeLocationData = m_sceneMetadata.getEyeLocationData();
+					Float3 atSphere = calculateSphereInfo({ oldEyeLocationData.x, oldEyeLocationData.y, oldEyeLocationData.z },
+						{ atLocation.x, atLocation.y, atLocation.z });
+					atSphere.x += -.1f;
+					auto abcd = convertSphericalCoordsToCartesian(atSphere);
+					m_sceneMetadata.setEyeLocationData({ abcd.x, abcd.y, abcd.z, 0.0f });
+
 				}
 			}
 			else if (nextMessage.mType == GameMessageType::DirectionDown) {
@@ -245,10 +249,13 @@ void Sample3DSceneRenderer::Update(DX::StepTimer const& timer)
 				}
 				else
 				{
-					DirectX::XMFLOAT4 eyeLocationData = m_sceneMetadata.getEyeLocationData();
-					eyeLocationData.z += 0.1f;
-					m_sceneMetadata.setEyeLocationData(eyeLocationData);
-
+					DirectX::XMFLOAT4 atLocation = m_sceneMetadata.getAtLocationData();
+					XMFLOAT4 oldEyeLocationData = m_sceneMetadata.getEyeLocationData();
+					Float3 atSphere = calculateSphereInfo({ oldEyeLocationData.x, oldEyeLocationData.y, oldEyeLocationData.z },
+						{ atLocation.x, atLocation.y, atLocation.z });
+					atSphere.x += .1f;
+					auto abcd = convertSphericalCoordsToCartesian(atSphere);
+					m_sceneMetadata.setEyeLocationData({ abcd.x, abcd.y, abcd.z, 0.0f });
 				}
 			}
 			else if (nextMessage.mType == GameMessageType::GameSwitchInputControl)
