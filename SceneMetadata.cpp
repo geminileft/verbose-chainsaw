@@ -62,7 +62,8 @@ SceneMetadata SceneMetadata::getJsonScene(Platform::String^ jsonFilename)
     }
     else
     {
-        upDirection = calculateUpDirection(eyeLocation, atLocation);
+        // upDirection = calculateUpDirection(eyeLocation, atLocation);
+        upDirection = { 0.0f, 1.0f, 0.0f, 0.0f };
     }
     DirectX::XMVECTOR lightDirection;
     JsonArray^ lightDirectionData = data->GetNamedArray("light_direction", nullptr);
@@ -150,4 +151,12 @@ DirectX::XMFLOAT4 SceneMetadata::getAtLocationData()
 bool SceneMetadata::getCalculateNormals()
 {
     return m_calculateNormals;
+}
+
+void SceneMetadata::reverseUpVector()
+{
+    DirectX::XMFLOAT4 dest;
+    DirectX::XMStoreFloat4(&dest, m_upVector);
+    dest.y *= -1;
+    m_upVector = DirectX::XMLoadFloat4(&dest);
 }

@@ -1,6 +1,7 @@
 #pragma once
 
 #include "pch.h"
+#include "ObjStructures.h"
 
 inline float calculateVectorLength(DirectX::XMFLOAT4 v)
 {
@@ -38,4 +39,33 @@ inline DirectX::XMVECTOR calculateUpDirection(DirectX::XMFLOAT4 eyeLocation, Dir
         0
     };
     return upDirection;
+}
+
+inline Float3 calculateSphereInfo(Float3 outsidePoint, Float3 centerPoint)
+{
+    float dx = outsidePoint.x - centerPoint.x;
+    float dz = outsidePoint.y - centerPoint.y;
+    float dy = outsidePoint.z - centerPoint.z;
+
+    double radial = sqrt((dx * dx) + (dy * dy) + (dz * dz));
+    double omega = atan2(dy, dx);
+    double theta = atan2(sqrt((dx * dx) + (dy * dy)), dz);
+    double theta2 = acos(dz / radial);
+    // r = sqrt(x ^ 2 + y ^ 2 + z ^ 2)
+    // o = atan2(y / x)
+    // t = acos(z / r)
+    Float3 sphereInfo = { radial, omega, theta };
+    return sphereInfo;
+}
+
+inline Float3 convertSphericalCoordsToCartesian(Float3 sphericalCoords)
+{
+    Float3 val;
+    val.x = sphericalCoords.x * sin(sphericalCoords.z) * cos(sphericalCoords.y);
+    val.z = sphericalCoords.x * sin(sphericalCoords.z) * sin(sphericalCoords.y);
+    val.y = sphericalCoords.x * cos(sphericalCoords.z);
+    return val;
+    // x = r * sin(t) * cos(o)
+    // y = r * sin(t) * sin(o)
+    // z = r * cos(t)
 }

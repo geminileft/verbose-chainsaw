@@ -31,5 +31,7 @@ public:
 	DirectX::XMFLOAT4 getAtLocationData();
 
 	bool getCalculateNormals();
+
+	void reverseUpVector();
 };
 
