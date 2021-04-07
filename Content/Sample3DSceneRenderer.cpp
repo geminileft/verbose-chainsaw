@@ -68,6 +68,10 @@ Sample3DSceneRenderer::Sample3DSceneRenderer(const std::shared_ptr<DX::DeviceRes
 {
 	CreateDeviceDependentResources();
 	CreateWindowSizeDependentResources();
+	if (m_sceneMetadata.getEyeLocationData().z <= 0)
+	{
+		m_flipFactor *= -1.0f;
+	}
 }
 
 void Sample3DSceneRenderer::CreateDeviceDependentResources()
