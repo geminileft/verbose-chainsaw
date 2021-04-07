@@ -330,7 +330,7 @@ void Sample3DSceneRenderer::Update(DX::StepTimer const& timer)
 					XMFLOAT4 oldEyeLocationData = m_sceneMetadata.getEyeLocationData();
 					Float3 atSphere = calculateSphereInfo({ oldEyeLocationData.x, oldEyeLocationData.y, oldEyeLocationData.z },
 						{ atLocation.x, atLocation.y, atLocation.z });
-					atSphere.z += .1f * m_flipFactor;
+					atSphere.z += (atSphere.y >= 0 ? .1f : -.1f) * m_flipFactor;
 					auto abcd = convertSphericalCoordsToCartesian(atSphere);
 					DirectX::XMFLOAT4 newEyeLocationData = calculatePointRotate(rotateMatrix, oldEyeLocationData);
 					// m_sceneMetadata.setEyeLocationData(newEyeLocationData);
@@ -338,7 +338,6 @@ void Sample3DSceneRenderer::Update(DX::StepTimer const& timer)
 					if ((oldEyeLocationData.z * newEyeLocationData.z) < 0)
 					{
 						m_sceneMetadata.reverseUpVector();
-						m_flipFactor *= -1.0f;
 					}
 				}
 			}
