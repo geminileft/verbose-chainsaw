@@ -4,6 +4,7 @@
 #include "..\Common\DirectXHelper.h"
 #include "ObjReader.h"
 #include "FileUtils.h"
+#include "MathHelpers.h"
 
 using namespace App1;
 
@@ -259,13 +260,16 @@ void Sample3DSceneRenderer::Update(DX::StepTimer const& timer)
 				if (!m_isObjectSelected)
 				{
 					DirectX::XMFLOAT4 atLocation = m_sceneMetadata.getAtLocationData();
-					XMMATRIX rotateMatrix = XMMatrixRotationY(-.1f);
 					XMFLOAT4 oldEyeLocationData = m_sceneMetadata.getEyeLocationData();
-					XMVECTOR eyeLocation = XMLoadFloat4(&oldEyeLocationData);
-					XMVECTOR newEyeLocation = XMVector4Transform(eyeLocation, rotateMatrix);
-					DirectX::XMFLOAT4 newEyeLocationData;
-					XMStoreFloat4(&newEyeLocationData, newEyeLocation);
-					m_sceneMetadata.setEyeLocationData(newEyeLocationData);
+					Float3 atSphere = calculateSphereInfo({ oldEyeLocationData.x, oldEyeLocationData.y, oldEyeLocationData.z },
+						{ atLocation.x, atLocation.y, atLocation.z });
+					atSphere.y += .1f;
+					auto abcd = convertSphericalCoordsToCartesian(atSphere);
+					if ((oldEyeLocationData.z * abcd.z) < 0)
+					{
+						m_flipFactor *= -1.0f;
+					}
+					m_sceneMetadata.setEyeLocationData({ abcd.x, abcd.y, abcd.z, 0.0f });
 				}
 			}
 			else if (nextMessage.mType == GameMessageType::ControlsStrafeRight)
@@ -273,13 +277,16 @@ void Sample3DSceneRenderer::Update(DX::StepTimer const& timer)
 				if (!m_isObjectSelected)
 				{
 					DirectX::XMFLOAT4 atLocation = m_sceneMetadata.getAtLocationData();
-					XMMATRIX rotateMatrix = XMMatrixRotationY(.1f);
 					XMFLOAT4 oldEyeLocationData = m_sceneMetadata.getEyeLocationData();
-					XMVECTOR eyeLocation = XMLoadFloat4(&oldEyeLocationData);
-					XMVECTOR newEyeLocation = XMVector4Transform(eyeLocation, rotateMatrix);
-					DirectX::XMFLOAT4 newEyeLocationData;
-					XMStoreFloat4(&newEyeLocationData, newEyeLocation);
-					m_sceneMetadata.setEyeLocationData(newEyeLocationData);
+					Float3 atSphere = calculateSphereInfo({ oldEyeLocationData.x, oldEyeLocationData.y, oldEyeLocationData.z },
+						{ atLocation.x, atLocation.y, atLocation.z });
+					atSphere.y += -.1f;
+					auto abcd = convertSphericalCoordsToCartesian(atSphere);
+					if ((oldEyeLocationData.z * abcd.z) < 0)
+					{
+						m_flipFactor *= -1.0f;
+					}
+					m_sceneMetadata.setEyeLocationData({ abcd.x, abcd.y, abcd.z, 0.0f });
 				}
 			}
 			else if (nextMessage.mType == GameMessageType::ControlsCircleUp)
@@ -287,13 +294,16 @@ void Sample3DSceneRenderer::Update(DX::StepTimer const& timer)
 				if (!m_isObjectSelected)
 				{
 					DirectX::XMFLOAT4 atLocation = m_sceneMetadata.getAtLocationData();
-					XMMATRIX rotateMatrix = XMMatrixRotationX(-.1f);
 					XMFLOAT4 oldEyeLocationData = m_sceneMetadata.getEyeLocationData();
-					XMVECTOR eyeLocation = XMLoadFloat4(&oldEyeLocationData);
-					XMVECTOR newEyeLocation = XMVector4Transform(eyeLocation, rotateMatrix);
-					DirectX::XMFLOAT4 newEyeLocationData;
-					XMStoreFloat4(&newEyeLocationData, newEyeLocation);
-					m_sceneMetadata.setEyeLocationData(newEyeLocationData);
+					Float3 atSphere = calculateSphereInfo({ oldEyeLocationData.x, oldEyeLocationData.y, oldEyeLocationData.z },
+						{ atLocation.x, atLocation.y, atLocation.z });
+					atSphere.z += (atSphere.y >= 0 ? -.1f : .1f) * m_flipFactor;
+					auto abcd = convertSphericalCoordsToCartesian(atSphere);
+					m_sceneMetadata.setEyeLocationData({abcd.x, abcd.y, abcd.z, 0.0f});
+					if ((oldEyeLocationData.z * abcd.z) < 0)
+					{
+						m_sceneMetadata.reverseUpVector();
+					}
 				}
 			}
 			else if (nextMessage.mType == GameMessageType::ControlsCircleDown)
@@ -301,13 +311,16 @@ void Sample3DSceneRenderer::Update(DX::StepTimer const& timer)
 				if (!m_isObjectSelected)
 				{
 					DirectX::XMFLOAT4 atLocation = m_sceneMetadata.getAtLocationData();
-					XMMATRIX rotateMatrix = XMMatrixRotationX(.1f);
 					XMFLOAT4 oldEyeLocationData = m_sceneMetadata.getEyeLocationData();
-					XMVECTOR eyeLocation = XMLoadFloat4(&oldEyeLocationData);
-					XMVECTOR newEyeLocation = XMVector4Transform(eyeLocation, rotateMatrix);
-					DirectX::XMFLOAT4 newEyeLocationData;
-					XMStoreFloat4(&newEyeLocationData, newEyeLocation);
-					m_sceneMetadata.setEyeLocationData(newEyeLocationData);
+					Float3 atSphere = calculateSphereInfo({ oldEyeLocationData.x, oldEyeLocationData.y, oldEyeLocationData.z },
+						{ atLocation.x, atLocation.y, atLocation.z });
+					atSphere.z += (atSphere.y >= 0 ? .1f : -.1f) * m_flipFactor;
+					auto abcd = convertSphericalCoordsToCartesian(atSphere);
+					m_sceneMetadata.setEyeLocationData({ abcd.x, abcd.y, abcd.z, 0.0f });
+					if ((oldEyeLocationData.z * abcd.z) < 0)
+					{
+						m_sceneMetadata.reverseUpVector();
+					}
 				}
 			}
 			messages.pop();

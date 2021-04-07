@@ -58,7 +58,8 @@ namespace App1
 		size_t  m_vertexCount;
 		double m_totalRotation = 0;
 		bool m_isObjectSelected = false;
-		DirectX::XMFLOAT3 m_objectRotation = DirectX::XMFLOAT3(0.0f,0.0f,0.0f);
+		DirectX::XMFLOAT3 m_objectRotation = DirectX::XMFLOAT3(0.0f, 0.0f, 0.0f);
+		DirectX::XMFLOAT3 m_cameraRotation = DirectX::XMFLOAT3(0.0f, 0.0f, 0.0f);
 
 		// Variables used with the rendering loop.
 		bool	m_loadingComplete;
@@ -67,6 +68,7 @@ namespace App1
 		GameMessageSystem* m_messageSystem;
 		long m_subscriptionId;
 		SceneMetadata m_sceneMetadata;
+		float m_flipFactor = 1.0f;
 
 	};
 }

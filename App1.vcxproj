@@ -263,6 +263,7 @@
     <ClInclude Include="GameInputManager.h" />
     <ClInclude Include="GameMessageSystem.h" />
     <ClInclude Include="Helpers.h" />
+    <ClInclude Include="MathHelpers.h" />
     <ClInclude Include="ObjReader.h" />
     <ClInclude Include="ObjStructures.h" />
     <ClInclude Include="pch.h" />

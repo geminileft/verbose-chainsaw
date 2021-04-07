@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "SceneMetadata.h"
 #include "FileUtils.h"
+#include "MathHelpers.h"
 
 SceneMetadata::SceneMetadata(Platform::String^ objFilename, Platform::String^ mtlFilename,
     DirectX::XMFLOAT4 eyeLocation, DirectX::XMFLOAT4 atLocation,
@@ -47,16 +48,24 @@ SceneMetadata SceneMetadata::getJsonScene(Platform::String^ jsonFilename)
         (float)atLocationData->GetNumberAt(2),
         (float)atLocationData->GetNumberAt(3)
     };
-    JsonArray^ upDirectionData = data->GetNamedArray("up_direction");
-    DirectX::XMVECTOR upDirection = {
-        (float)upDirectionData->GetNumberAt(0),
-        (float)upDirectionData->GetNumberAt(1),
-        (float)upDirectionData->GetNumberAt(2),
-        (float)upDirectionData->GetNumberAt(3)
-    };
-    DirectX::XMVECTOR lightDirection;
 
-    // TODO: LIGHT DIRECTION UPDATE
+    DirectX::XMVECTOR upDirection;
+    JsonArray^ upDirectionData = data->GetNamedArray("up_direction", nullptr);
+    if (upDirectionData != nullptr)
+    {
+        upDirection = {
+            (float)upDirectionData->GetNumberAt(0),
+            (float)upDirectionData->GetNumberAt(1),
+            (float)upDirectionData->GetNumberAt(2),
+            (float)upDirectionData->GetNumberAt(3)
+        };
+    }
+    else
+    {
+        // upDirection = calculateUpDirection(eyeLocation, atLocation);
+        upDirection = { 0.0f, 1.0f, 0.0f, 0.0f };
+    }
+    DirectX::XMVECTOR lightDirection;
     JsonArray^ lightDirectionData = data->GetNamedArray("light_direction", nullptr);
     if (lightDirectionData != nullptr)
     {
@@ -142,4 +151,12 @@ DirectX::XMFLOAT4 SceneMetadata::getAtLocationData()
 bool SceneMetadata::getCalculateNormals()
 {
     return m_calculateNormals;
+}
+
+void SceneMetadata::reverseUpVector()
+{
+    DirectX::XMFLOAT4 dest;
+    DirectX::XMStoreFloat4(&dest, m_upVector);
+    dest.y *= -1;
+    m_upVector = DirectX::XMLoadFloat4(&dest);
 }
