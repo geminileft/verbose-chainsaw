@@ -14,6 +14,7 @@ enum class GameMessageType
 	, DirectionLeft
 	, ActionStop
 	, GameSwitchInputControl
+	, GameLightDirUpdate
 	, ControlsStrafeLeft
 	, ControlsStrafeRight
 	, ControlsCircleUp

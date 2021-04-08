@@ -196,7 +196,7 @@ void Sample3DSceneRenderer::CreateWindowSizeDependentResources()
 	XMStoreFloat4x4(&m_constantBufferData.view, XMMatrixTranspose(XMMatrixLookAtRH(eye, at, up)));
 	*/
 
-	static const XMVECTOR lightDirection = m_sceneMetadata.getLightDirection();
+	const XMVECTOR lightDirection = m_sceneMetadata.getLightDirection();
 	XMStoreFloat4(&m_constantBufferData.lightDirection, lightDirection);
 
 }
@@ -334,6 +334,10 @@ void Sample3DSceneRenderer::Update(DX::StepTimer const& timer)
 					}
 				}
 			}
+			else if (nextMessage.mType == GameMessageType::GameLightDirUpdate)
+			{
+				m_isLightVectorLocked = !m_isLightVectorLocked;
+			}
 			messages.pop();
 		}
 
@@ -344,6 +348,12 @@ void Sample3DSceneRenderer::Update(DX::StepTimer const& timer)
 
 		Rotate(radians);
 
+		if (!m_isLightVectorLocked)
+		{
+			m_sceneMetadata.updateLightDirection();
+			const XMVECTOR lightDirection = m_sceneMetadata.getLightDirection();
+			XMStoreFloat4(&m_constantBufferData.lightDirection, lightDirection);
+		}
 	}
 }
 
@@ -387,6 +397,7 @@ void Sample3DSceneRenderer::SetMessageSystem(GameMessageSystem* messageSystem)
 	messageFilters.insert(GameMessageType::DirectionUp);
 	messageFilters.insert(GameMessageType::DirectionDown);
 	messageFilters.insert(GameMessageType::GameSwitchInputControl);
+	messageFilters.insert(GameMessageType::GameLightDirUpdate);
 	messageFilters.insert(GameMessageType::ControlsStrafeLeft);
 	messageFilters.insert(GameMessageType::ControlsStrafeRight);
 	messageFilters.insert(GameMessageType::ControlsCircleUp);

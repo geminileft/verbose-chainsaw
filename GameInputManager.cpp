@@ -114,6 +114,12 @@ void GameInputManager::Update(DX::StepTimer const& timer)
                 info.mType = GameMessageType::ControlsCircleDown;
                 m_messageSystem->Broadcast(info);
             }
+            else if (event.value == "<L>")
+            {
+                GameMessageInfo info;
+                info.mType = GameMessageType::GameLightDirUpdate;
+                m_messageSystem->Broadcast(info);
+            }
         }
         m_inputQueue.pop();
     }
@@ -194,6 +200,9 @@ void GameInputManager::PlatformInputForwarder::OnKeyDown(CoreWindow^ sender, Key
         break;
     case VirtualKey::S:
         keyValue = "<S>";
+        break;
+    case VirtualKey::L:
+        keyValue = "<L>";
         break;
     }
 

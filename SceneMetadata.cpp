@@ -128,6 +128,15 @@ DirectX::XMVECTOR SceneMetadata::getUpVector()
     return m_upVector;
 }
 
+void SceneMetadata::updateLightDirection()
+{
+    DirectX::XMVECTOR a = DirectX::XMLoadFloat4(&m_eyeLocationData);
+    DirectX::XMVECTOR b = DirectX::XMLoadFloat4(&m_atLocation);
+    auto abSub = DirectX::XMVectorSubtract(a, b);
+    m_lightDirection = DirectX::XMVector4Normalize(abSub);
+
+}
+
 DirectX::XMVECTOR SceneMetadata::getLightDirection()
 {
     return m_lightDirection;
