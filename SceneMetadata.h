@@ -24,14 +24,12 @@ public:
 	DirectX::XMVECTOR getEyeLocation();
 	DirectX::XMVECTOR getAtLocation();
 	DirectX::XMVECTOR getUpVector();
+	void updateLightDirection();
 	DirectX::XMVECTOR getLightDirection();
-
 	void setEyeLocationData(DirectX::XMFLOAT4 eyeLocationData);
 	DirectX::XMFLOAT4 getEyeLocationData();
 	DirectX::XMFLOAT4 getAtLocationData();
-
 	bool getCalculateNormals();
-
 	void reverseUpVector();
 };
 
