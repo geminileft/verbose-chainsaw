@@ -1,6 +1,6 @@
 {
-  "obj_filename": "Resource\\Wavefront\\mushroom_redGroup.obj",
-  "mtl_filename": "Resource\\Wavefront\\mushroom_redGroup.mtl",
+  "obj_filename": "Resource\\Wavefront\\tent_detailedOpen.obj",
+  "mtl_filename": "Resource\\Wavefront\\tent_detailedOpen.mtl",
   "eye_location": [ 0.0, 0.0, -5.0, 0.0 ],
   "at_location": [ 0.0, 0.0, 0.0, 0.0 ]
 }

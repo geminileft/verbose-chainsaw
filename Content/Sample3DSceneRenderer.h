@@ -69,7 +69,7 @@ namespace App1
 		long m_subscriptionId;
 		SceneMetadata m_sceneMetadata;
 		float m_flipFactor = 1.0f;
-		float m_isLightVectorLocked = true;
+		float m_isLightVectorLocked = false;
 	};
 }
 
