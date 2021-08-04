@@ -114,7 +114,7 @@ void GameInputManager::Update(DX::StepTimer const& timer)
                 info.mType = GameMessageType::ControlsCircleDown;
                 m_messageSystem->Broadcast(info);
             }
-            else if (event.value == "<L>")
+            else if (event.value == "<NUMBER2>")
             {
                 GameMessageInfo info;
                 info.mType = GameMessageType::GameLightDirUpdate;
@@ -188,6 +188,9 @@ void GameInputManager::PlatformInputForwarder::OnKeyDown(CoreWindow^ sender, Key
         break;
     case VirtualKey::Number1:
         keyValue = "<NUMBER1>";
+        break;
+    case VirtualKey::Number2:
+        keyValue = "<NUMBER2>";
         break;
     case VirtualKey::A:
         keyValue = "<A>";
