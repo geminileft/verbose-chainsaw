@@ -146,6 +146,26 @@ void GameInputManager::Update(DX::StepTimer const& timer)
             info.mType = GameMessageType::DirectionLeft;
             m_messageSystem->Broadcast(info);
         }
+        else if (currentReading.LeftThumbstickX < -0.1) {
+            GameMessageInfo info;
+            info.mType = GameMessageType::ControlsStrafeLeft;
+            m_messageSystem->Broadcast(info);
+        }
+        else if (currentReading.LeftThumbstickX > 0.1) {
+            GameMessageInfo info;
+            info.mType = GameMessageType::ControlsStrafeRight;
+            m_messageSystem->Broadcast(info);
+        }
+        else if (currentReading.LeftThumbstickY < -0.1) {
+            GameMessageInfo info;
+            info.mType = GameMessageType::ControlsCircleDown;
+            m_messageSystem->Broadcast(info);
+        }
+        else if (currentReading.LeftThumbstickY > 0.1) {
+            GameMessageInfo info;
+            info.mType = GameMessageType::ControlsCircleUp;
+            m_messageSystem->Broadcast(info);
+        }
     }
 }
 
